@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: 16b7dd385387a4c45b6005e0b7b64213
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: DrawCall_0318
+    100002: DrawCall_0332
+    100004: DrawCall_0333
+    100006: DrawCall_0348
+    100008: DrawCall_0349
+    100010: DrawCall_0351
+    100012: DrawCall_0356
+    100014: DrawCall_0357
+    100016: DrawCall_0358
+    100018: DrawCall_0374
+    100020: DrawCall_0388
+    100022: DrawCall_412
+    100024: //RootNode
+    100026: Object001
+    100028: Object003
+    400000: DrawCall_0318
+    400002: DrawCall_0332
+    400004: DrawCall_0333
+    400006: DrawCall_0348
+    400008: DrawCall_0349
+    400010: DrawCall_0351
+    400012: DrawCall_0356
+    400014: DrawCall_0357
+    400016: DrawCall_0358
+    400018: DrawCall_0374
+    400020: DrawCall_0388
+    400022: DrawCall_412
+    400024: //RootNode
+    400026: Object001
+    400028: Object003
+    2300000: DrawCall_0318
+    2300002: DrawCall_0332
+    2300004: DrawCall_0333
+    2300006: DrawCall_0348
+    2300008: DrawCall_0349
+    2300010: DrawCall_0351
+    2300012: DrawCall_0356
+    2300014: DrawCall_0357
+    2300016: DrawCall_0358
+    2300018: DrawCall_0374
+    2300020: DrawCall_0388
+    2300022: DrawCall_412
+    2300024: Object001
+    2300026: Object003
+    3300000: DrawCall_0318
+    3300002: DrawCall_0332
+    3300004: DrawCall_0333
+    3300006: DrawCall_0348
+    3300008: DrawCall_0349
+    3300010: DrawCall_0351
+    3300012: DrawCall_0356
+    3300014: DrawCall_0357
+    3300016: DrawCall_0358
+    3300018: DrawCall_0374
+    3300020: DrawCall_0388
+    3300022: DrawCall_412
+    3300024: Object001
+    3300026: Object003
+    4300000: DrawCall_0318
+    4300002: DrawCall_0332
+    4300004: DrawCall_0333
+    4300006: DrawCall_0348
+    4300008: DrawCall_0349
+    4300010: DrawCall_0351
+    4300012: DrawCall_0356
+    4300014: DrawCall_0357
+    4300016: DrawCall_0358
+    4300018: DrawCall_0374
+    4300020: DrawCall_0388
+    4300022: DrawCall_412
+    4300024: Object001
+    4300026: Object003
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
