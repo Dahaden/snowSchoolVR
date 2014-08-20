@@ -1,0 +1,8 @@
+Unable to load material library
+Unable to read material "Trunk" in .mtl file
+Unable to read material "Bough" in .mtl file
+Unable to read material "Branch1" in .mtl file
+Unable to read material "Branch2" in .mtl file
+Unable to read material "Branch3" in .mtl file
+Unable to read material "Twig" in .mtl file
+Unable to read material "Needle" in .mtl file
