@@ -18,3 +18,10 @@ SnowsSchoolVR
 1. Download and install the Kinect SDK from here (http://www.microsoft.com/en-us/download/details.aspx?id=40278) 
 2. Plug in the Kinect Sensor
 3. Run the game
+
+
+## Oculus Rift
+
+1. Signup for Oculus (https://developer.oculusvr.com)
+2. Download Oculus Runtime For Windows through the download link
+3. Install and run
