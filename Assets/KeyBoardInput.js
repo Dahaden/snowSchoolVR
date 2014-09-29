@@ -1,4 +1,4 @@
-﻿#pragma strict
+﻿s#pragma strict
 
 var totalLean : float = 0;
 
@@ -49,7 +49,7 @@ function Update () {
     	//Debug.Log("Angle: " + slopeAngle);
     	var normX = transform.position.x * 1.0 / (terrain.size.x - 1);
     	var normY = transform.position.y * 1.0 / (terrain.size.y - 1);
-    	//slopeAngleSteep = terrain.GetSteepness(normX, normY);
+    	slopeAngleSteep = terrain.GetSteepness(normX, normY);
     	// Debug.Log("AngleSteep: " + slopeAngleSteep);
         var direction = getVectorInput();
         var lean : float = maxLean * direction.z;
@@ -68,8 +68,8 @@ function Update () {
         //Debug.Log("Velocity X: " + rigidbody.velocity.x);
         //Debug.Log("forward: "+ forward +" and lean: " + lean);
 
-        /*rigidbody.AddForceAtPosition(forward * lean/10000000*-1, new Vector3(rigidbody.velocity.x, 0, 0));
-        var velocity = transform.InverseTransformDirection( rigidbody.velocity );//Vector3.RotateTowards(rigidbody.velocity, new Vector3(transform.rotation.x,transform.rotation.y ,transform.rotation.z), 3.0, 0.0);
+        //rigidbody.AddForceAtPosition(forward * lean/10000000*-1, new Vector3(rigidbody.velocity.x, 0, 0));
+        //var velocity = transform.InverseTransformDirection( rigidbody.velocity );//Vector3.RotateTowards(rigidbody.velocity, new Vector3(transform.rotation.x,transform.rotation.y ,transform.rotation.z), 3.0, 0.0);
         
         if (Mathf.Abs(lean) < buffer) {
              // Change velocity from z to x by 50%
@@ -78,7 +78,7 @@ function Update () {
              // Change velocity from z to x by 10%
              rigidbody.velocity = transform.TransformDirection(new Vector3(velocity.x + velocity.z * 0.1, 0, velocity.z * 0.9));
              // Debug.Log("test");
-        }*/
+        }
         
         //rigidbody.AddForce(transform.TransformDirection(new Vector3(-1000, 0, 0)));
         //var eulerAngleVelocity : Vector3 = Vector3 (0, 100, 0);
@@ -103,69 +103,8 @@ function OnCollisionExit (col : Collision)
 }
 
 function getVectorInput() {
-    var left_toe = Input.GetKey(KeyCode.S);
-    var left_heel = Input.GetKey(KeyCode.D);
-
-    var right_toe = Input.GetKey(KeyCode.W);
-    var right_heel = Input.GetKey(KeyCode.E);
-
-    var x = 0.0;
-    var z = 0.0;
-
-    if (left_toe) {
-
-        x -= 0.5;
-        z -= 0.5;
-        //Debug.Log("left_toe: x-" + x +", z-" + z);
-    }
-
-    if (left_heel) {
-
-        x -= 0.5;
-        z += 0.5;
-        //Debug.Log("left_heel: x-" + x +", z-" + z);
-    }
-
-    if (right_toe) {
-
-        x += 0.5;
-        z -= 0.5;
-        //Debug.Log("right_toe: x-" + x +", z-" + z);
-    }
-
-    if (right_heel) {
-
-        x += 0.5;
-        z += 0.5;
-        //Debug.Log("right_heel: x-" + x +", z-" + z);
-    }
-
-    //Debug.Log("X: " + x + ", Y: " + y);
 
     var directionVector = new Vector3(Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal"));
-
-    Debug.Log("Initial Vector: "+ directionVector.ToString());
-
-    // Used to make max magnitude = 1
-    // May use this later
-    // if (directionVector != Vector3.zero) {
-    //     // Get the length of the directon vector and then normalize it
-    //     // Dividing by the length is cheaper than normalizing when we already have the length anyway
-    //     var directionLength = directionVector.magnitude;
-    //     directionVector = directionVector / directionLength;
-    //
-    //     // Make sure the length is no bigger than 1
-    //     directionLength = Mathf.Min(1, directionLength);
-    //
-    //     // Make the input vector more sensitive towards the extremes and less sensitive in the middle
-    //     // This makes it easier to control slow speeds when using analog sticks
-    //     directionLength = directionLength * directionLength;
-    //
-    //     // Multiply the normalized direction vector by the modified length
-    //     directionVector = directionVector * directionLength;
-    // }
-
-    //Debug.Log("Returned Vector: "+ directionVector.ToString());
-
+	Debug.Log("");
     return directionVector;
 }
