@@ -1,4 +1,4 @@
-﻿s#pragma strict
+﻿#pragma strict
 
 var totalLean : float = 0;
 
@@ -19,7 +19,7 @@ var isColliding = false;
 var terrain : TerrainData;
 
 function Start () {
-	var hitCast : RaycastHit;
+	/*var hitCast : RaycastHit;
 
     if (Physics.Raycast(transform.position, Vector3.down, hitCast))
     {
@@ -27,7 +27,7 @@ function Start () {
 
         var dir = Vector3.up;
 
-        transform.rotation = Quaternion.FromToRotation(dir, hitCast.normal);
+        //transform.rotation = Quaternion.FromToRotation(dir, hitCast.normal);
         slopeAngle = transform.rotation;	
     }
 
@@ -41,15 +41,12 @@ function Start () {
     Debug.Log(normY);
     slopeAngleSteep = terrain.GetSteepness(normX, normY);
     //Debug.Log("Angle: " + slopeAngle);
-    Debug.Log("AngleSteep: " + slopeAngleSteep);
+    Debug.Log("AngleSteep: " + slopeAngleSteep);*/
 }
 
 function Update () {
     if(isColliding) {
-    	//Debug.Log("Angle: " + slopeAngle);
-    	var normX = transform.position.x * 1.0 / (terrain.size.x - 1);
-    	var normY = transform.position.y * 1.0 / (terrain.size.y - 1);
-    	slopeAngleSteep = terrain.GetSteepness(normX, normY);
+
     	// Debug.Log("AngleSteep: " + slopeAngleSteep);
         var direction = getVectorInput();
         var lean : float = maxLean * direction.z;
@@ -63,20 +60,62 @@ function Update () {
 		// Debug.Log(totalLean);
 		Debug.Log("transform.rotation.x=" + transform.rotation.x + ",transform.rotation.y=" + transform.rotation.y + ",transform.rotation.z=" + transform.rotation.z);
         var deltaRotation : Quaternion = Quaternion.Euler(Vector3(lean/10, totalLean, 0));
-        transform.rotation = slopeAngle * deltaRotation;
+        //transform.rotation = slopeAngle * deltaRotation;
         var forward = transform.forward;
+        //var oldVelocity = transform.InverseTransformDirection( rigidbody.velocity );
+        
+        
+        // Find x and z velocity of snoboader (dont care about up and down) (x through the length of snowboard, z through width
+        
+        var oldVelocity = transform.InverseTransformDirection( rigidbody.velocity );
+        Debug.Log("Velocity X: " + oldVelocity.x + ", Velocity Z: " + oldVelocity.z);
+        
+        
+        var newVelocity = new Vector3();
+        
+        // Leaning *should* be in opposite direction to velocity z
+        
+        
+        if(direction.z * oldVelocity.z < 0 || oldVelocity.z < 5) {
+        
+        
+        	// Leaning increases friction in z movement and only reduces that TODO(Skidding??)
+        	
+        		// Reduce by a propotion of lean
+        	newVelocity.z = oldVelocity.z / Mathf.Abs(20/direction.z);
+        	
+        	newVelocity.x = oldVelocity.x;
+        	
+        	// As leaning occurs, small rotation of board occurs, also rotating velocity of player
+        		//rotate around y axis a fraction of lean z and velocity x
+        	rigidbody.AddTorque(new Vector3(0, (direction.z * oldVelocity.z) / 50, 0));
+        
+        	rigidbody.velocity = transform.TransformDirection(newVelocity);
+        
+        
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         //Debug.Log("Velocity X: " + rigidbody.velocity.x);
         //Debug.Log("forward: "+ forward +" and lean: " + lean);
 
         //rigidbody.AddForceAtPosition(forward * lean/10000000*-1, new Vector3(rigidbody.velocity.x, 0, 0));
         //var velocity = transform.InverseTransformDirection( rigidbody.velocity );//Vector3.RotateTowards(rigidbody.velocity, new Vector3(transform.rotation.x,transform.rotation.y ,transform.rotation.z), 3.0, 0.0);
-        
+
         if (Mathf.Abs(lean) < buffer) {
              // Change velocity from z to x by 50%
-             rigidbody.velocity = transform.TransformDirection(new Vector3(velocity.x + velocity.z * 0.5, 0, velocity.z * 0.5));
+             //rigidbody.velocity = transform.TransformDirection(new Vector3(velocity.x + velocity.z * 0.5, 0, velocity.z * 0.5));
         } else {
              // Change velocity from z to x by 10%
-             rigidbody.velocity = transform.TransformDirection(new Vector3(velocity.x + velocity.z * 0.1, 0, velocity.z * 0.9));
+             //rigidbody.velocity = transform.TransformDirection(new Vector3(velocity.x + velocity.z * 0.1, 0, velocity.z * 0.9));
              // Debug.Log("test");
         }
         
@@ -103,8 +142,10 @@ function OnCollisionExit (col : Collision)
 }
 
 function getVectorInput() {
-
-    var directionVector = new Vector3(Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal"));
-	Debug.Log("");
+	var steps = 10.0;
+	var x : float = Input.GetAxis("Mouse X") * steps;
+	var z : float = Input.GetAxis("Mouse Y") * steps;
+    var directionVector = new Vector3(x, 0, z);
+	Debug.Log("Lean X: " + directionVector.x + ", Lean Z: " + directionVector.z);
     return directionVector;
 }
