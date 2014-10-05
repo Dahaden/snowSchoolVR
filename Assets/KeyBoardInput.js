@@ -58,7 +58,7 @@ function Update () {
 		}
 		
 		// Debug.Log(totalLean);
-		Debug.Log("transform.rotation.x=" + transform.rotation.x + ",transform.rotation.y=" + transform.rotation.y + ",transform.rotation.z=" + transform.rotation.z);
+		//Debug.Log("transform.rotation.x=" + transform.rotation.x + ",transform.rotation.y=" + transform.rotation.y + ",transform.rotation.z=" + transform.rotation.z);
         var deltaRotation : Quaternion = Quaternion.Euler(Vector3(lean/10, totalLean, 0));
         //transform.rotation = slopeAngle * deltaRotation;
         var forward = transform.forward;
@@ -68,13 +68,17 @@ function Update () {
         // Find x and z velocity of snoboader (dont care about up and down) (x through the length of snowboard, z through width
         
         var oldVelocity = transform.InverseTransformDirection( rigidbody.velocity );
-        Debug.Log("Velocity X: " + oldVelocity.x + ", Velocity Z: " + oldVelocity.z);
+        //Debug.Log("Velocity X: " + oldVelocity.x + ", Velocity Z: " + oldVelocity.z);
         
         
         var newVelocity = new Vector3();
         
         // Leaning *should* be in opposite direction to velocity z
         
+        var count = 0;
+        if (count%2 == 0) {	
+        	//Debug.Log("Z Velocity: " + oldVelocity.z);
+        }
         
         if(direction.z * oldVelocity.z < 0 || oldVelocity.z < 5) {
         
@@ -88,7 +92,7 @@ function Update () {
         	
         	// As leaning occurs, small rotation of board occurs, also rotating velocity of player
         		//rotate around y axis a fraction of lean z and velocity x
-        	rigidbody.AddTorque(new Vector3(0, (direction.z * oldVelocity.z) / 50, 0));
+        	rigidbody.AddTorque(new Vector3(0, (direction.z) / 50, 0));
         
         	rigidbody.velocity = transform.TransformDirection(newVelocity);
         
@@ -146,6 +150,6 @@ function getVectorInput() {
 	var x : float = Input.GetAxis("Mouse X") * steps;
 	var z : float = Input.GetAxis("Mouse Y") * steps;
     var directionVector = new Vector3(x, 0, z);
-	Debug.Log("Lean X: " + directionVector.x + ", Lean Z: " + directionVector.z);
+	//Debug.Log("Lean X: " + directionVector.x + ", Lean Z: " + directionVector.z);
     return directionVector;
 }
