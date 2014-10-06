@@ -23,14 +23,14 @@ public class StateMech : MonoBehaviour {
 			//camera1stPerson = findGameObject("1stPersonOVRCameraController", gameObject);
 			//camera3rdPerson = findGameObject("3rdPersonOVRCameraController", gameObject);
 		//}
-		camera3rdPerson.camera.enabled = false;
+		turnOff(true, camera3rdPerson);
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log ("Time: " + Time.time);
-		if (Time.time > 10.0) { // Seconds since start of game
+		if (Time.time > 30.0) { // Seconds since start of game
 			Debug.Log("Stopped recording");
 			if(position == 0) {
 				// Component script;
@@ -40,6 +40,8 @@ public class StateMech : MonoBehaviour {
 				//name = "Zig Skeleton";
 				//gameObject.GetComponentInChildren(name).active = false;
 				switch3rdPerson(true);
+				gameObject.GetComponent("Key Board Input").active = false;
+				findGameObject("Dana").GetComponent("Zig Skeleton").active = false;
 
 			}
 			setFromHash(gameObject.transform);
@@ -86,10 +88,21 @@ public class StateMech : MonoBehaviour {
 		Camera.GetAllCameras (cameras);
 		if (camera1stPerson != null) {
 			if (to) {
-				camera1stPerson.camera.enabled = false;
-				camera3rdPerson.camera.enabled = true;
+				turnOff(true, camera1stPerson);
+				turnOff(false, camera3rdPerson);
 			} else {
+				turnOff(false, camera1stPerson);
+				turnOff(true, camera3rdPerson);
+			}
+		}
+	}
 
+	void turnOff(bool off, GameObject camera) {
+		if (camera.name == "1stPersonCamera" || camera.name == "3rdPersonCamera") {
+			camera.camera.enabled = !off;
+		} else if(camera.name == "1stPersonOVRCameraController" || camera.name == "3rdPersonOVRCameraController"){
+			foreach(Transform child in camera.transform) {
+				child.gameObject.camera.enabled = !off;
 			}
 		}
 	}

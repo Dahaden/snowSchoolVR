@@ -87,9 +87,14 @@ function Update () {
         	
         	newVelocity.x = oldVelocity.x;
         	
+        	var turn = 1;
+        	if (newVelocity.x > 0) {
+        		turn = -1;
+        	}
+        	
         	// As leaning occurs, small rotation of board occurs, also rotating velocity of player
         		//rotate around y axis a fraction of lean z and velocity x
-        	rigidbody.AddTorque(new Vector3(0, (direction.z) / 50, 0));
+        	rigidbody.AddTorque(new Vector3(0, (direction.z) / 50 * turn, 0));
         
         	rigidbody.velocity = transform.TransformDirection(newVelocity);
         
