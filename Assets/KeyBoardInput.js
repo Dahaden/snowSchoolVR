@@ -1,24 +1,14 @@
 ﻿#pragma strict
 
-var totalLean : float = 0;
-
 var maxLean = 10;
-var friction = 0.2;
-var Rsc = 8; // Meters
-
-// var slopeAngle : float ;
-var slopeAngleSteep : float ;
-var worldPos : Vector3;
-
-var slopeAngle = Quaternion.Euler(Vector3(0, 0, 0));
-
-var buffer = 0.01;
 
 var isColliding = false;
 
 var terrain : TerrainData;
+var count = 0;
 
 function Start () {
+	count = 0;
 	/*var hitCast : RaycastHit;
 
     if (Physics.Raycast(transform.position, Vector3.down, hitCast))
@@ -49,17 +39,24 @@ function Update () {
 
     	// Debug.Log("AngleSteep: " + slopeAngleSteep);
         var direction = getVectorInput();
-        var lean : float = maxLean * direction.z;
 		// Debug.Log(lean);
 		
-		// Cap lean at a 45 degree angle (0.5 of 90 deg)
-		if (Mathf.Abs(transform.rotation.y) < 0.5) {
-			totalLean = totalLean + lean/30;
-		}
+		var rotate = getRotate(gameObject.transform);
 		
-		// Debug.Log(totalLean);
-		//Debug.Log("transform.rotation.x=" + transform.rotation.x + ",transform.rotation.y=" + transform.rotation.y + ",transform.rotation.z=" + transform.rotation.z);
-        var deltaRotation : Quaternion = Quaternion.Euler(Vector3(lean/10, totalLean, 0));
+		if(rotate != null && count%20) {
+			var tiltAroundX = (direction.z/15) * maxLean * -1;
+			var target = Quaternion.Euler (tiltAroundX, 0, 0);
+			
+			//var defaultRotate =  gameObject.transform.rotation;
+			//defaultRotate.x = rotate.transform.rotation.x;
+			//rotate.transform.localRotation  = defaultRotate;
+
+			// Dampen towards the target rotation
+			rotate.transform.localRotation  = Quaternion.Slerp(rotate.transform.localRotation , target,
+		                               Time.deltaTime * 2.0);
+		}
+		count++;
+
         //transform.rotation = slopeAngle * deltaRotation;
         var forward = transform.forward;
         //var oldVelocity = transform.InverseTransformDirection( rigidbody.velocity );
@@ -114,25 +111,33 @@ function Update () {
         //rigidbody.AddForceAtPosition(forward * lean/10000000*-1, new Vector3(rigidbody.velocity.x, 0, 0));
         //var velocity = transform.InverseTransformDirection( rigidbody.velocity );//Vector3.RotateTowards(rigidbody.velocity, new Vector3(transform.rotation.x,transform.rotation.y ,transform.rotation.z), 3.0, 0.0);
 
-        if (Mathf.Abs(lean) < buffer) {
+        //if (Mathf.Abs(lean) < buffer) {
              // Change velocity from z to x by 50%
              //rigidbody.velocity = transform.TransformDirection(new Vector3(velocity.x + velocity.z * 0.5, 0, velocity.z * 0.5));
-        } else {
+        //} else {
              // Change velocity from z to x by 10%
              //rigidbody.velocity = transform.TransformDirection(new Vector3(velocity.x + velocity.z * 0.1, 0, velocity.z * 0.9));
              // Debug.Log("test");
-        }
+        //}
         
         //rigidbody.AddForce(transform.TransformDirection(new Vector3(-1000, 0, 0)));
         //var eulerAngleVelocity : Vector3 = Vector3 (0, 100, 0);
         
-        if (lean >= 0.5) {
+        //if (lean >= 0.5) {
         	// var deltaRotation : Quaternion = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
         	// rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
-        } else if (lean <= -0.5) {
+        //} else if (lean <= -0.5) {
         	// rigidbody.AddForce(transform.TransformDirection(Vector3.left * 10));
-        }
+        //}
     }		
+}
+function getRotate(transform) {
+	var t : Transform = transform;
+	for(var child : Transform in t) {
+		if(child.name == "Rotate") {
+			return child.gameObject;
+		}
+	}
 }
 
 function OnCollisionEnter (col : Collision)
