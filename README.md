@@ -25,3 +25,28 @@ SnowsSchoolVR
 1. Signup for Oculus (https://developer.oculusvr.com)
 2. Download Oculus Runtime For Windows through the download link
 3. Install and run
+
+
+## Turning OVR on
+1. Click on "Gameplayer" in left bar
+2. Activate all OVR scripts
+3. Within "State Mech" script, check "OVRActive" variable
+4. Expand hierarchy until you get within "Dana" object
+5. Deactivate the non-OVR cameras and activate the OVR cameras
+
+To turn OVR off, do the opposite of 2, 3 and 5
+
+### Troubleshoot
+If you are missing scripts for OVR in your assets, add scripts as follows:  
+GamePlayer:
+* OVRGamepad Controller
+* OVRMain Menu
+
+1stPersonOVRCameraController (and 3rd person)
+* OVRDevice
+
+CameraLeft
+* OVRCamera
+
+CameraRight
+* OVRCamera (Check "RightEye" variable)
