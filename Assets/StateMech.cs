@@ -6,9 +6,14 @@ public class StateMech : MonoBehaviour {
 	private Hashtable saved = new Hashtable();
 
 	private int position;
+	private int max = 0;
+	private float timeOffset = (float)0.0;
 
 	private GameObject camera3rdPerson;
 	private GameObject camera1stPerson;
+
+	public bool OVRActive = false;
+	public float timeLoop = (float)30.0;
 
 	void Awake() {
 		DontDestroyOnLoad (gameObject);
@@ -16,13 +21,17 @@ public class StateMech : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//if (Camera.main.name == "1stPersonCamera" || Camera.main.name == "3rdPersonCamera") {
-			camera1stPerson = findGameObject("1stPersonCamera", gameObject);
-			camera3rdPerson = findGameObject("3rdPersonCamera", gameObject);
-		//} else if (Camera.main.name == "1stPersonOVRCameraController" || Camera.main.name == "3rdPersonOVRCameraController"){
-			//camera1stPerson = findGameObject("1stPersonOVRCameraController", gameObject);
-			//camera3rdPerson = findGameObject("3rdPersonOVRCameraController", gameObject);
-		//}
+		if (!OVRActive) {
+				camera1stPerson = findGameObject ("1stPersonCamera", gameObject);
+				camera3rdPerson = findGameObject ("3rdPersonCamera", gameObject);
+			//turnOff(true, findGameObject ("1stPersonOVRCameraController", gameObject));
+			//turnOff(true, findGameObject ("3rdPersonOVRCameraController", gameObject));
+		} else {
+			camera1stPerson = findGameObject("1stPersonOVRCameraController", gameObject);
+			camera3rdPerson = findGameObject("3rdPersonOVRCameraController", gameObject);
+			//turnOff(true, findGameObject ("3rdPersonCamera", gameObject));
+			//turnOff(true, findGameObject ("1stPersonCamera", gameObject));
+		}
 		turnOff(true, camera3rdPerson);
 
 	}
@@ -30,8 +39,8 @@ public class StateMech : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log ("Time: " + Time.time);
-		if (Time.time > 30.0) { // Seconds since start of game
-			Debug.Log("Stopped recording");
+		if (Time.time > timeLoop + timeOffset) { // Seconds since start of game
+			//Debug.Log("Stopped recording");
 			if(position == 0) {
 				// Component script;
 				//string name = "Key Board Input";
@@ -40,15 +49,27 @@ public class StateMech : MonoBehaviour {
 				//name = "Zig Skeleton";
 				//gameObject.GetComponentInChildren(name).active = false;
 				switch3rdPerson(true);
-				gameObject.GetComponent("Key Board Input").active = false;
-				findGameObject("Dana").GetComponent("Zig Skeleton").active = false;
+				//gameObject.GetComponent("Key Board Input").active = false;
+				//findGameObject("Dana", gameObject).GetComponent("Zig Skeleton").active = false;
 
 			}
 			setFromHash(gameObject.transform);
 			position++;
+			if (position == max) {
+				timeOffset = Time.time;
+				switch3rdPerson(false);
+				//gameObject.GetComponent("Key Board Input").active = true;
+				//findGameObject("Dana", gameObject).GetComponent("Zig Skeleton").active = true;
+				gameObject.transform.position = ((GOReference)((ArrayList)saved[gameObject.name])[0]).position;
+				gameObject.transform.rotation = ((GOReference)((ArrayList)saved[gameObject.name])[0]).rotation;
+				gameObject.rigidbody.velocity = new Vector3(0, 0, 0);
+				saved = new Hashtable();
+				position = 0;
+			}
 		} else {
-			Debug.Log("Atleast Im here?");
+			//Debug.Log("Atleast Im here?");
 			updateHash(gameObject.transform);
+			max++;
 		}
 	}
 

@@ -143,6 +143,7 @@ function getRotate(transform) {
 			return child.gameObject;
 		}
 	}
+	return null;
 }
 
 function OnCollisionEnter (col : Collision)
