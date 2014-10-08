@@ -26,13 +26,13 @@ public class StateMech : MonoBehaviour {
 		if (!OVRActive) {
 				camera1stPerson = findGameObject ("1stPersonCamera", gameObject);
 				camera3rdPerson = findGameObject ("3rdPersonCamera", gameObject);
-			//turnOff(true, findGameObject ("1stPersonOVRCameraController", gameObject));
-			//turnOff(true, findGameObject ("3rdPersonOVRCameraController", gameObject));
+			turnOff(true, findGameObject ("1stPersonOVRCameraController", gameObject));
+			turnOff(true, findGameObject ("3rdPersonOVRCameraController", gameObject));
 		} else {
 			camera1stPerson = findGameObject("1stPersonOVRCameraController", gameObject);
 			camera3rdPerson = findGameObject("3rdPersonOVRCameraController", gameObject);
-			//turnOff(true, findGameObject ("3rdPersonCamera", gameObject));
-			//turnOff(true, findGameObject ("1stPersonCamera", gameObject));
+			turnOff(true, findGameObject ("3rdPersonCamera", gameObject));
+			turnOff(true, findGameObject ("1stPersonCamera", gameObject));
 		}
 		turnOff(true, camera3rdPerson);
 
