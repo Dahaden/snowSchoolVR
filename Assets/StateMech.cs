@@ -34,13 +34,14 @@ public class StateMech : MonoBehaviour {
 			//turnOff(true, findGameObject ("3rdPersonCamera", gameObject));
 			//turnOff(true, findGameObject ("1stPersonCamera", gameObject));
 		}
+
 		turnOff(true, camera3rdPerson);
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("Time: " + Time.time);
+		//Debug.Log ("Time: " + Time.time);
 		if (Time.time > timeLoop + timeOffset) { // Seconds since start of game
 			//Debug.Log("Stopped recording");
 			if(position == 0) {
@@ -63,6 +64,8 @@ public class StateMech : MonoBehaviour {
 			spheres.Clear();
 
 			setFromHash(gameObject.transform);
+
+
 
 			position++;
 			if (position == max) {
@@ -175,6 +178,17 @@ public class StateMech : MonoBehaviour {
 
 	public void Save() {
 
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		if(collision.collider.gameObject.name == "LeftPlane")
+		{
+			Debug.Log("HIT LEFT PLANE");
+			//What you wanna do on collision with GameObject "whatIWannaHit"
+		}else if(collision.collider.gameObject.name == "RightPlane"){
+			
+			Debug.Log("HIT RIGHT PLANE");
+		}
 	}
 }
 
