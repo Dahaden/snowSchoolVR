@@ -58,6 +58,7 @@ GamePlayer:
 
 1stPersonOVRCameraController (and 3rd person)
 * OVRDevice
+* OVRCameraController ("Follow Orientation" Field must be assigned to "Rotate")
 
 CameraLeft
 * OVRCamera
