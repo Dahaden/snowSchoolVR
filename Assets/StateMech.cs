@@ -76,6 +76,12 @@ public class StateMech : MonoBehaviour {
 				saved = new Hashtable();
 				position = 0;
 				max = 0;
+
+				// Destroy the last frame of spheres
+				foreach(GameObject sphere in spheres) {
+					Destroy(sphere);
+				}
+				spheres.Clear();
 			}
 		} else {
 			//Debug.Log("Atleast Im here?");
