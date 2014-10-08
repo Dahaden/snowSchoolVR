@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class StateMech : MonoBehaviour {
 
 	private Hashtable saved = new Hashtable();
+	private Hashtable optimal;
 
 	private int position;
 	private int max = 0;
@@ -16,6 +19,8 @@ public class StateMech : MonoBehaviour {
 
 	public bool OVRActive = false;
 	public float timeLoop = (float)30.0;
+
+    public float jointAngleThreshold = 10f;
 
 	void Awake() {
 		DontDestroyOnLoad (gameObject);
@@ -35,7 +40,7 @@ public class StateMech : MonoBehaviour {
 			//turnOff(true, findGameObject ("1stPersonCamera", gameObject));
 		}
 		turnOff(true, camera3rdPerson);
-
+		optimal = OpenHashtableFile ("optimal.hash");
 	}
 	
 	// Update is called once per frame
@@ -127,6 +132,10 @@ public class StateMech : MonoBehaviour {
 		GOReference reference = new GOReference ();
 		reference.position = transform.position;
 		reference.rotation = transform.rotation;
+
+		if(checkJointAngles(transform,(Transform) optimal[transform.name])){
+			reference.score += 10;
+		}
 		((ArrayList)saved [transform.name]).Add (reference);
 
 		foreach (Transform child in transform) {
@@ -176,6 +185,36 @@ public class StateMech : MonoBehaviour {
 	public void Save() {
 
 	}
+
+    bool checkJointAngles(Transform current, Transform optimal)
+    {
+        float angle = Quaternion.Angle(current.rotation, optimal.rotation);
+
+        if (angle < jointAngleThreshold)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    static void SaveHashtableFile(Hashtable ht, string path)
+    {
+        BinaryFormatter bfw = new BinaryFormatter();
+        FileStream file = File.OpenWrite(path);
+        StreamWriter ws = new StreamWriter(file);
+        bfw.Serialize(ws.BaseStream, ht);
+        file.Close();
+    }
+
+    static Hashtable OpenHashtableFile(string path)
+    {
+        FileStream filer = File.OpenRead(path);
+        StreamReader readMap = new StreamReader(filer);
+        BinaryFormatter bf = new BinaryFormatter();
+        Hashtable ret = (Hashtable)bf.Deserialize(readMap.BaseStream);
+        filer.Close();
+        return ret;
+    }
 }
 
 class GOReference {
