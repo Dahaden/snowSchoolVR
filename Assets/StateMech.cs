@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class StateMech : MonoBehaviour {
@@ -11,6 +11,8 @@ public class StateMech : MonoBehaviour {
 
 	private GameObject camera3rdPerson;
 	private GameObject camera1stPerson;
+
+	private ArrayList spheres = new ArrayList();
 
 	public bool OVRActive = false;
 	public float timeLoop = (float)30.0;
@@ -38,7 +40,7 @@ public class StateMech : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log ("Time: " + Time.time);
+		Debug.Log ("Time: " + Time.time);
 		if (Time.time > timeLoop + timeOffset) { // Seconds since start of game
 			//Debug.Log("Stopped recording");
 			if(position == 0) {
@@ -53,7 +55,15 @@ public class StateMech : MonoBehaviour {
 				//findGameObject("Dana", gameObject).GetComponent("Zig Skeleton").active = false;
 
 			}
+
+			// Destroy the last frame of spheres
+			foreach(GameObject sphere in spheres) {
+				Destroy(sphere);
+			}
+			spheres.Clear();
+
 			setFromHash(gameObject.transform);
+
 			position++;
 			if (position == max) {
 				timeOffset = Time.time;
@@ -65,6 +75,13 @@ public class StateMech : MonoBehaviour {
 				gameObject.rigidbody.velocity = new Vector3(0, 0, 0);
 				saved = new Hashtable();
 				position = 0;
+				max = 0;
+
+				// Destroy the last frame of spheres
+				foreach(GameObject sphere in spheres) {
+					Destroy(sphere);
+				}
+				spheres.Clear();
 			}
 		} else {
 			//Debug.Log("Atleast Im here?");
@@ -80,6 +97,21 @@ public class StateMech : MonoBehaviour {
 			Quaternion gamerotation = reference.rotation;
 			transform.position = gamePosition;
 			transform.rotation = gamerotation;
+
+			// Create red highlighted portions for all transforms that contain a certain string
+			if(transform.name.Contains("Leg")) {
+				GameObject mySphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+				spheres.Add(mySphere);
+				mySphere.collider.enabled = false;
+				mySphere.transform.localScale = new Vector3(1, 1, 1) / 5;
+				mySphere.transform.position = transform.position;
+				Color color = mySphere.renderer.material.color;
+				color = Color.red;
+				color.a = 1-reference.score;
+				mySphere.renderer.material.color = color;
+				mySphere.renderer.material.shader = Shader.Find( "Transparent/Diffuse" );
+			}
+
 			foreach(Transform child in transform) {
 				if(!child.name.Contains("camera")){
 					setFromHash(child);
@@ -149,7 +181,7 @@ public class StateMech : MonoBehaviour {
 class GOReference {
 	public Vector3 position;
 	public Quaternion rotation;
-	public float score;
+	public float score = 0.5f;
 }
 
 class PlayerData {
