@@ -10,8 +10,13 @@ SnowsSchoolVR
   b. If your computer asks for a pin, leave it blank and press ok
 2. Install Virtual JoyStick Driver (WiiBalanceWalker_v0.4/VJoy_1.2_Driver.exe)
 3. Run WiiBalanceWalker (WiiBalanceWalker_v0.4/WiiBalanceWalker.exe)
-4. Press "Connect to Wii balance board"
+4. Press "Connect to Wii balance board" 
 5. On the right panel, uncheck "Disable All Actions" and check "Enable Joystick"
+
+### Config
+[Image](https://www.dropbox.com/s/ans8xhsd3rltvq6/wiiwalkersettings.PNG?dl=0)  
+Ensure left and right are set to "Mouse X" and up and down set to "Mouse Y" and others are set to do nothing  
+the -15 and 15 values should be the same as default
 
 ### Pairing
 1. Use Windows 8
@@ -22,7 +27,7 @@ SnowsSchoolVR
 5. If the blue light is not solid, repeat
 
 If you ignore no. 1 and use Windows 7
-1. Open "WiiBalanceWalker" and click the button above "Connect to Wii Balance Board"
+1. Open "WiiBalanceWalker" and click "Add bluetooth Wii device"
 2. Click Search.
 3. Once finished, quickly close the window and click "Connect to Wii Balance Board"
 If no. 3 is not done fast enough, you will need to retry.
