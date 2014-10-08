@@ -7,11 +7,25 @@ SnowsSchoolVR
 
 1. Connect to WiiBalance Board  
   a. Use the sync button under the battery cover while it is on  
-  b. If your computer asks for a pin, leave it blank and pres ok
+  b. If your computer asks for a pin, leave it blank and press ok
 2. Install Virtual JoyStick Driver (WiiBalanceWalker_v0.4/VJoy_1.2_Driver.exe)
 3. Run WiiBalanceWalker (WiiBalanceWalker_v0.4/WiiBalanceWalker.exe)
 4. Press "Connect to Wii balance board"
 5. On the right panel, uncheck "Disable All Actions" and check "Enable Joystick"
+
+### Pairing
+1. Use Windows 8
+2. Open panel on Wii Board and press the red button
+3. Search for the Wii Board (Initially labeled as "Input Device" then changes to "Nintendo-XXX")
+  a. Leave any pin field blank and press ok
+4. Before the blue light on the power button stops flashing, press "Connect to Wii Balance Board"
+5. If the blue light is not solid, repeat
+
+If you ignore no. 1 and use Windows 7
+1. Open "WiiBalanceWalker" and click the button above "Connect to Wii Balance Board"
+2. Click Search.
+3. Once finished, quickly close the window and click "Connect to Wii Balance Board"
+If no. 3 is not done fast enough, you will need to retry.
 
 ## Kinect
 
