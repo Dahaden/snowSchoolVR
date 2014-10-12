@@ -7,6 +7,9 @@ public class Boundaries : MonoBehaviour
 		private GameObject boundLeft;
 		private GameObject boundRight;
 
+	public int leftHits;
+	public int rightHits;
+
 		void Awake ()
 		{
 				DontDestroyOnLoad (gameObject);
@@ -15,7 +18,9 @@ public class Boundaries : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-		
+		leftHits = 0;
+		rightHits = 0;
+
 				boundLeft = findGameObject ("BoundaryLineLeft", gameObject);
 				boundRight = findGameObject ("BoundaryLineRight", gameObject);
 		
@@ -32,6 +37,7 @@ public class Boundaries : MonoBehaviour
 
 		public void hideLeft ()
 		{
+				leftHits++;
 				boundLeft.SetActive (false);
 		}
 
@@ -42,6 +48,7 @@ public class Boundaries : MonoBehaviour
 
 		public void hideRight ()
 		{
+				rightHits++;
 				boundRight.SetActive (false);
 		}
 

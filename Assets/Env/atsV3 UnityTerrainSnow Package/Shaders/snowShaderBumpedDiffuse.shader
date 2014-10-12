@@ -34,7 +34,8 @@ struct Input {
 };
 
 
-void snow (inout appdata_full v, out Input o) {	
+void snow (inout appdata_full v, out Input o) {
+    UNITY_INITIALIZE_OUTPUT(Input,o);	
     o.MyWorldNormal = normalize(mul((float3x3)_Object2World, v.normal));
 }
 
@@ -62,7 +63,7 @@ void surf (Input IN, inout SurfaceOutput o) {
 
 	// mix 
 	o.Albedo = col.rgb * (1-snowAmount) + snowtex.rgb*snowAmount;
-	o.Gloss = half(snowAmount*(1-snowtex.rgb));
+	o.Gloss = half3(snowAmount*(1-snowtex.rgb));
 	o.Specular = _snowShininess;
 	
 	// smooth normal
