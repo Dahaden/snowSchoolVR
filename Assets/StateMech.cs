@@ -17,6 +17,7 @@ public class StateMech : MonoBehaviour
 		public float timeLoop = (float)300.0;
 		public Boundaries boundaries;
 		private string numHits = "";
+		private SnowSchoolMenu initialGUI;
 
 		void Awake ()
 		{
@@ -25,12 +26,12 @@ public class StateMech : MonoBehaviour
 
 		public void returnToStart ()
 		{
-		if(camera1stPerson.camera.enabled == true){
-			//save number of hits 
-			numHits = numHits + "," + ((boundaries.leftHits + boundaries.rightHits).ToString());
-			boundaries.leftHits = 0;
-			boundaries.rightHits = 0;
-		}
+				if (camera1stPerson.camera.enabled == true) {
+						//save number of hits 
+						numHits = numHits + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
+						boundaries.leftHits = 0;
+						boundaries.rightHits = 0;
+				}
 				if (Time.time > timeWithoutFeedForward) {
 						//Debug.Log("Stopped recording");
 						if (position == 0) {
@@ -80,7 +81,6 @@ public class StateMech : MonoBehaviour
 		{
 		
 				//Debug.Log("Start");
-				Screen.lockCursor = true;
 				if (!OVRActive) {
 						camera1stPerson = findGameObject ("1stPersonCamera", gameObject);
 						camera3rdPerson = findGameObject ("3rdPersonCamera", gameObject);
@@ -95,8 +95,11 @@ public class StateMech : MonoBehaviour
 
 				turnOff (true, camera3rdPerson);
 
-		    //recenter the rift here?
-			OVRCamera.ResetCameraPositionOrientation(Vector3.one, Vector3.zero, Vector3.up, Vector3.zero);
+				initialGUI = gameObject.GetComponentInChildren<SnowSchoolMenu>();
+				//gameObject.SetActive (false);
+				// hide the cursor
+				Screen.lockCursor = true;
+				Screen.showCursor = false;
 		
 		}
 	
@@ -104,6 +107,14 @@ public class StateMech : MonoBehaviour
 		void Update ()
 		{
 
+				//hide initial screen if showing and press space
+				if (Input.GetKeyDown (KeyCode.Space) && initialGUI.enabled) {
+					initialGUI.enabled = false;
+					gameObject.rigidbody.constraints = RigidbodyConstraints.None;
+				}else if(Input.GetKeyDown (KeyCode.R)){
+					//recenter rift
+					OVRCamera.ResetCameraPositionOrientation (Vector3.one, Vector3.zero, Vector3.up, Vector3.zero);
+				}
 //				//Debug.Log ("Time: " + Time.time);
 //				if (Time.time > timeLoop + timeOffset) { // Seconds since start of game
 //						//Debug.Log("Stopped recording");
@@ -148,15 +159,15 @@ public class StateMech : MonoBehaviour
 //								spheres.Clear ();
 //						}
 //				} else {
-				if(camera1stPerson.camera.enabled == true){
+				if (camera1stPerson.camera.enabled == true) {
 						updateHash (gameObject.transform);
 						max++;
 				}
 
-				if(Time.time > timeLoop){
-					//save and quit
-					System.IO.File.WriteAllText(@"C:\Users\Sara\Desktop\SnowSchoolData.csv", numHits);
-					Application.Quit();
+				if (Time.time > timeLoop) {
+						//save and quit
+						System.IO.File.WriteAllText (@"C:\Users\Sara\Desktop\SnowSchoolData.csv", numHits);
+						Application.Quit ();
 				}
 		}
 

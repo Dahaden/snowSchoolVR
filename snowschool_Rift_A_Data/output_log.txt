@@ -20,7 +20,7 @@ Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A
 Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\OpenNI.Net.dll into Unity Child Domain
 Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\ZDK.dll (this message is harmless)
 Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\ZDK.dll into Unity Child Domain
-- Completed reload, in  0.213 seconds
+- Completed reload, in  0.093 seconds
 <RI> Initializing input.
 XInput1_3.dll not found.
 <RI> Input initialized.
@@ -59,63 +59,11 @@ The referenced script on this Behaviour is missing!
  
 (Filename:  Line: 1783)
 
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\System.dll (this message is harmless)
-Trying to open Kinect sensor using MS Kinect SDK
+OVRMainMenu: More then 1 OVRCameraController attached.
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Note: Microsoft's Kinect SDK can only be used in one process at a time. Please quit any other processes using the Microsoft Kinect
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-This also means you must quit the Unity Editor before using any compiled product
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Kinect specific comopnent started
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Boo.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\UnityScript.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\System.Core.dll (this message is harmless)
-Zig: Found user  24
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 24
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  27
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT LEFT PLANE
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 27
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  73
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 73
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  74
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 74
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  80
+OVRMainMenu: No OVRPlayerController attached.
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
