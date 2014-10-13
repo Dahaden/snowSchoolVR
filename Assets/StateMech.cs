@@ -19,8 +19,8 @@ public class StateMech : MonoBehaviour
 		public Zig zigFu;
 		private string numHits = "";
 		private SnowSchoolMenu initialGUI;
-
 		private bool playBack = false;
+		private float startTime = 0f;
 
 		void Awake ()
 		{
@@ -29,49 +29,44 @@ public class StateMech : MonoBehaviour
 
 		public void returnToStart ()
 		{
-			if (!playBack) {
-					//save number of hits 
-				numHits = numHits + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
-				boundaries.leftHits = 0;
-				boundaries.rightHits = 0;
-				playBack = true;
-				switch3rdPerson (true);
-				zigFu.enabled = false;
-				Debug.Log("Zig Fu Disabled");
-			} else {
-				gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
-				gameObject.transform.rotation = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).rotation;
-				gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
-				saved = new Hashtable ();
-				position = 0;
-				max = 0;
-				playBack = false;
-				switch3rdPerson (false);
-				zigFu.enabled = true;
-			Debug.Log("Zig Fu Enabled");
-			}
+				if (!playBack) {
+						//save number of hits 
+						numHits = numHits + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
+						boundaries.leftHits = 0;
+						boundaries.rightHits = 0;
+						playBack = true;
+						switch3rdPerson (true);
+						zigFu.enabled = false;
+						Debug.Log ("Zig Fu Disabled");
+				} else {
+						gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
+						gameObject.transform.rotation = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).rotation;
+						gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
+						saved = new Hashtable ();
+						position = 0;
+						max = 0;
+						playBack = false;
+						switch3rdPerson (false);
+						zigFu.enabled = true;
+						Debug.Log ("Zig Fu Enabled");
+				}
 		
 		}
 		// Use this for initialization
 		void Start ()
 		{
-		
-				//Debug.Log("Start");
+
 				if (!OVRActive) {
 						camera1stPerson = findGameObject ("1stPersonCamera", gameObject);
 						camera3rdPerson = findGameObject ("3rdPersonCamera", gameObject);
-						//turnOff(true, findGameObject ("1stPersonOVRCameraController", gameObject));
-						//turnOff(true, findGameObject ("3rdPersonOVRCameraController", gameObject));
 				} else {
 						camera1stPerson = findGameObject ("1stPersonOVRCameraController", gameObject);
 						camera3rdPerson = findGameObject ("3rdPersonOVRCameraController", gameObject);
-						//turnOff(true, findGameObject ("3rdPersonCamera", gameObject));
-						//turnOff(true, findGameObject ("1stPersonCamera", gameObject));
 				}
 
 				turnOff (true, camera3rdPerson);
 
-				initialGUI = gameObject.GetComponentInChildren<SnowSchoolMenu>();
+				initialGUI = gameObject.GetComponentInChildren<SnowSchoolMenu> ();
 				//gameObject.SetActive (false);
 				// hide the cursor
 				Screen.lockCursor = true;
@@ -82,52 +77,62 @@ public class StateMech : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-
-				//hide initial screen if showing and press space
-				if (Input.GetKeyDown (KeyCode.Space) && initialGUI.enabled) {
-					initialGUI.enabled = false;
-					gameObject.rigidbody.constraints = RigidbodyConstraints.None;
-				}else if(Input.GetKeyDown (KeyCode.R)){
-					//recenter rift
-					OVRCamera.ResetCameraPositionOrientation (Vector3.one, Vector3.zero, Vector3.up, Vector3.zero);
+				if (Input.GetKeyDown (KeyCode.R)) {
+						//recenter rift
+						OVRCamera.ResetCameraPositionOrientation (Vector3.one, Vector3.zero, Vector3.up, Vector3.zero);
 				}
 
-			if (!playBack) {
-				updateHash (gameObject.transform);
-				max++;
-			} else {
-				feedForward();
-			}
-			if(Time.time > timeLoop){
-				//save and quit
-				System.IO.File.WriteAllText(@"C:\Users\Sara\Desktop\SnowSchoolData.csv", numHits);
-				Application.Quit();
-			}
+				if (initialGUI.enabled) {
+						if (Input.GetKeyDown (KeyCode.Space)) {
+								initialGUI.enabled = false;
+								gameObject.rigidbody.constraints = RigidbodyConstraints.None;
+								startTime = Time.time;
+						}
+				} else {
+
+						if (!playBack) {
+								updateHash (gameObject.transform);
+								max++;
+						} else {
+								feedForward ();
+						}
+						if ((Time.time - startTime) > timeLoop) {
+								//save and quit
+								System.IO.File.WriteAllText (@"C:\Users\Sara\Desktop\SnowSchoolData.csv", numHits);
+								Application.Quit ();
+						}
+
+				}
+
+				
+
+			
 		}
 
-	void feedForward() {
-			foreach (GameObject sphere in spheres) {
-				Destroy (sphere);
-			}
-			spheres.Clear ();
-			
-			setFromHash (gameObject.transform);
-			
-			position++;
-			if (position == max) {
-				timeOffset = Time.time;
-				
-				// Destroy the last frame of spheres
+		void feedForward ()
+		{
 				foreach (GameObject sphere in spheres) {
-					Destroy (sphere);
+						Destroy (sphere);
 				}
 				spheres.Clear ();
-			}
-	}
+			
+				setFromHash (gameObject.transform);
+			
+				position++;
+				if (position == max) {
+						timeOffset = Time.time;
+				
+						// Destroy the last frame of spheres
+						foreach (GameObject sphere in spheres) {
+								Destroy (sphere);
+						}
+						spheres.Clear ();
+				}
+		}
 	
-	void setFromHash (Transform transform)
-	{
-		if (saved.Contains (transform.name)) {
+		void setFromHash (Transform transform)
+		{
+				if (saved.Contains (transform.name)) {
 						GOReference reference = (GOReference)((ArrayList)saved [transform.name]) [position];
 						Vector3 gamePosition = reference.position;
 						Quaternion gamerotation = reference.rotation;
