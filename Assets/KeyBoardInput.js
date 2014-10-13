@@ -21,7 +21,7 @@ function Update () {
 		var rotate = getRotate(gameObject.transform);
 		
 		if(rotate != null && count%20) {
-			var tiltAroundX = (direction.z/15) * maxLean * -1;
+			var tiltAroundX = (direction.z/15) * maxLean;
 			var target = Quaternion.Euler (tiltAroundX, 0, 0);
 			
 			//var defaultRotate =  gameObject.transform.rotation;
