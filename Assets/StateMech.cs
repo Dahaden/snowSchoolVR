@@ -20,6 +20,7 @@ public class StateMech : MonoBehaviour
 		private string numHits = "";
 		private SnowSchoolMenu initialGUI;
 		private RunEndGUI runEndGUI;
+		private RunEndGUI thirdPRunEndGUI;
 		private bool playBack = false;
 		private float startTime = 0f;
 		private float endHitTime = 0f;
@@ -33,14 +34,25 @@ public class StateMech : MonoBehaviour
 		public void returnToStart ()
 		{
 			if (!playBack) {
-						//stop physics
+						//slow physics
 						gameObject.rigidbody.drag = 0.5f;
-						//gameObject.rigidbody.angularDrag = 100;
-
 						endHitTime = Time.time;
 						runEndGUI.timeLeft = runEndShownFor;
+						
+						if ((Time.time + runEndShownFor) > timeWithoutFeedForward) {
+								runEndGUI.playbackNext = true;
+						} else {
+								runEndGUI.playbackNext = false;
+						}
 						runEndGUI.enabled = true;
-						//show message for 5 seconds
+				} else {
+					endHitTime = Time.time;
+					thirdPRunEndGUI.timeLeft = runEndShownFor;
+					
+					thirdPRunEndGUI.playbackNext = false;
+					thirdPRunEndGUI.endOfPlayback = true;
+				
+					thirdPRunEndGUI.enabled = true;
 				}
 		
 		}
@@ -85,8 +97,12 @@ public class StateMech : MonoBehaviour
 				initialGUI = gameObject.GetComponentInChildren<SnowSchoolMenu> ();
 				initialGUI.enabled = false;
 		
-				runEndGUI = gameObject.GetComponentInChildren<RunEndGUI> ();
+				runEndGUI = camera1stPerson.GetComponentInChildren<RunEndGUI> ();
 				runEndGUI.enabled = false;
+
+				thirdPRunEndGUI = camera3rdPerson.GetComponentInChildren<RunEndGUI> ();
+				thirdPRunEndGUI.enabled = false;
+
 				// hide the cursor
 				Screen.lockCursor = true;
 				Screen.showCursor = false;
@@ -116,6 +132,14 @@ public class StateMech : MonoBehaviour
 					}
 				}
 
+		if (thirdPRunEndGUI.enabled) {
+			thirdPRunEndGUI.timeLeft = (int) (runEndShownFor - (Time.time - endHitTime));
+			if ( thirdPRunEndGUI.timeLeft <= 0 ){
+				gameObject.rigidbody.drag = 0;
+				thirdPRunEndGUI.enabled = false;
+				resetToTop();
+			}
+		}
 				if (initialGUI.enabled) {
 						if (Input.GetKeyDown (KeyCode.Space)) {
 								initialGUI.enabled = false;
