@@ -19,8 +19,11 @@ public class StateMech : MonoBehaviour
 		public Zig zigFu;
 		private string numHits = "";
 		private SnowSchoolMenu initialGUI;
+		private RunEndGUI runEndGUI;
 		private bool playBack = false;
 		private float startTime = 0f;
+		private float endHitTime = 0f;
+		private int runEndShownFor = 10;
 
 		void Awake ()
 		{
@@ -29,29 +32,42 @@ public class StateMech : MonoBehaviour
 
 		public void returnToStart ()
 		{
-				if (!playBack) {
-						//save number of hits 
-						numHits = numHits + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
-						boundaries.leftHits = 0;
-						boundaries.rightHits = 0;
-						playBack = true;
-						switch3rdPerson (true);
-						zigFu.enabled = false;
-						Debug.Log ("Zig Fu Disabled");
-				} else {
-						gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
-						gameObject.transform.rotation = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).rotation;
-						gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
-						saved = new Hashtable ();
-						position = 0;
-						max = 0;
-						playBack = false;
-						switch3rdPerson (false);
-						zigFu.enabled = true;
-						Debug.Log ("Zig Fu Enabled");
+			if (!playBack) {
+						//stop physics
+						gameObject.rigidbody.drag = 0.5f;
+						//gameObject.rigidbody.angularDrag = 100;
+
+						endHitTime = Time.time;
+						runEndGUI.timeLeft = runEndShownFor;
+						runEndGUI.enabled = true;
+						//show message for 5 seconds
 				}
 		
 		}
+
+	void resetToTop(){
+		if (!playBack && ((Time.time - startTime) > timeWithoutFeedForward ) ) {
+			//save number of hits 
+			numHits = numHits + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
+			boundaries.leftHits = 0;
+			boundaries.rightHits = 0;
+			playBack = true;
+			switch3rdPerson (true);
+			zigFu.enabled = false;
+			Debug.Log ("Zig Fu Disabled");
+		} else {
+			gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
+			gameObject.transform.rotation = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).rotation;
+			gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
+			saved = new Hashtable ();
+			position = 0;
+			max = 0;
+			playBack = false;
+			switch3rdPerson (false);
+			zigFu.enabled = true;
+			Debug.Log ("Zig Fu Enabled");
+		}
+	}
 		// Use this for initialization
 		void Start ()
 		{
@@ -68,7 +84,9 @@ public class StateMech : MonoBehaviour
 
 				initialGUI = gameObject.GetComponentInChildren<SnowSchoolMenu> ();
 				initialGUI.enabled = false;
-				//gameObject.SetActive (false);
+		
+				runEndGUI = gameObject.GetComponentInChildren<RunEndGUI> ();
+				runEndGUI.enabled = false;
 				// hide the cursor
 				Screen.lockCursor = true;
 				Screen.showCursor = false;
@@ -87,6 +105,15 @@ public class StateMech : MonoBehaviour
 				if (Input.GetKeyDown (KeyCode.R)) {
 						//recenter rift
 						OVRCamera.ResetCameraPositionOrientation (Vector3.one, Vector3.zero, Vector3.up, Vector3.zero);
+				}
+
+				if (runEndGUI.enabled) {
+					runEndGUI.timeLeft = (int) (runEndShownFor - (Time.time - endHitTime));
+			if ( runEndGUI.timeLeft <= 0 ){
+					gameObject.rigidbody.drag = 0;
+						runEndGUI.enabled = false;
+						resetToTop();
+					}
 				}
 
 				if (initialGUI.enabled) {
