@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 var maxLean = 10;
+var maxAngle = 45;
 
 var isColliding = false;
 
@@ -19,10 +20,11 @@ function Update () {
 		// Debug.Log(lean);
 		
 		var rotate = getRotate(gameObject.transform);
+		var target = null;
 		
 		if(rotate != null && count%20) {
 			var tiltAroundX = (direction.z/15) * maxLean;
-			var target = Quaternion.Euler (tiltAroundX, 0, 0);
+			target = Quaternion.Euler (tiltAroundX, 0, 0);
 			
 			//var defaultRotate =  gameObject.transform.rotation;
 			//defaultRotate.x = rotate.transform.rotation.x;
@@ -33,6 +35,24 @@ function Update () {
 		                               Time.deltaTime * 2.0);
 		}
 		count++;
+		
+		var eulerRotation = transform.rotation.eulerAngles;
+		
+		if( eulerRotation.x > maxAngle && eulerRotation.x < 360 - maxAngle && count%20) {
+			//transform.rotation.eulerAngles.x = maxAngle;
+			target = Quaternion.Euler (maxAngle, transform.rotation.y, transform.rotation.z);
+			transform.rotation  = Quaternion.Slerp(transform.rotation , target,
+		                               Time.deltaTime * 2.0);
+			Debug.Log("Large X Angle");
+		}
+		
+		if( eulerRotation.z > maxAngle && eulerRotation.z < 360 - maxAngle  && count%20) {
+			//transform.rotation.eulerAngles.z = maxAngle;
+			target = Quaternion.Euler (transform.rotation.x, transform.rotation.y, maxAngle);
+			transform.rotation  = Quaternion.Slerp(transform.rotation , target,
+		                               Time.deltaTime * 2.0);
+			Debug.Log("Large Z Angle");
+		}
 
         //transform.rotation = slopeAngle * deltaRotation;
         var forward = transform.forward;
