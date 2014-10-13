@@ -67,6 +67,7 @@ public class StateMech : MonoBehaviour
 				turnOff (true, camera3rdPerson);
 
 				initialGUI = gameObject.GetComponentInChildren<SnowSchoolMenu> ();
+				initialGUI.enabled = false;
 				//gameObject.SetActive (false);
 				// hide the cursor
 				Screen.lockCursor = true;
@@ -77,6 +78,12 @@ public class StateMech : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+				//detect if health and safety warning is dismissed and show initial message if so
+				if(Input.anyKeyDown && startTime == 0 && initialGUI.enabled == false){
+					//show initial gui
+					initialGUI.enabled = true;
+				}
+
 				if (Input.GetKeyDown (KeyCode.R)) {
 						//recenter rift
 						OVRCamera.ResetCameraPositionOrientation (Vector3.one, Vector3.zero, Vector3.up, Vector3.zero);
@@ -88,7 +95,7 @@ public class StateMech : MonoBehaviour
 								gameObject.rigidbody.constraints = RigidbodyConstraints.None;
 								startTime = Time.time;
 						}
-				} else {
+				} else if (!(startTime == 0)) {
 
 						if (!playBack) {
 								updateHash (gameObject.transform);
