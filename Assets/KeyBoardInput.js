@@ -69,12 +69,11 @@ function Update () {
         
         // Leaning *should* be in opposite direction to velocity z
         
-        var count = 0;
         if (count%2 == 0) {	
-        	//Debug.Log("Z Velocity: " + oldVelocity.z);
+        	Debug.Log("Z Velocity: " + oldVelocity.z);
         }
         
-        if(direction.z * oldVelocity.z < 0 || oldVelocity.z < 5) {
+        if(direction.z * oldVelocity.z < 0 || Mathf.Abs(oldVelocity.z) < 5) {
         
         
         	// Leaning increases friction in z movement and only reduces that TODO(Skidding??)
@@ -96,6 +95,11 @@ function Update () {
         	rigidbody.velocity = transform.TransformDirection(newVelocity);
         
         
+        } else if (Mathf.Abs(oldVelocity.z) > 5) {
+        	newVelocity.z = oldVelocity.z / 2;
+        	
+        	newVelocity.x = oldVelocity.x;
+        	rigidbody.velocity = transform.TransformDirection(newVelocity);
         }
         
     }		
@@ -112,12 +116,16 @@ function getRotate(transform) {
 
 function OnCollisionEnter (col : Collision)
 {
-    isColliding = true;
+	if (col.collider.gameObject.name == "Terrain") {
+    	isColliding = true;
+    }
 }
 
 function OnCollisionExit (col : Collision)
 {
-    isColliding = false;
+	if (col.collider.gameObject.name == "Terrain") {
+    	isColliding = false;
+    }
 }
 
 function getVectorInput() {
