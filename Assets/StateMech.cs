@@ -115,13 +115,15 @@ public class StateMech : MonoBehaviour
         gameObject.transform.position = ((GOReference)((ArrayList)saved[gameObject.name])[0]).position;
         gameObject.transform.rotation = ((GOReference)((ArrayList)saved[gameObject.name])[0]).rotation;
         gameObject.rigidbody.velocity = new Vector3(0, 0, 0);
-        if (!playBack && ((Time.time - startTime) > timeWithoutFeedForward))
+		if(!playBack){
+			Score s = calculateScore(gameObject.transform);
+			outputScore = outputScore + (Time.time - startTime) + "," + ((boundaries.leftHits + boundaries.rightHits).ToString()) + "," + s.foot + "," + s.upleg + "\n";
+			boundaries.leftHits = 0;
+			boundaries.rightHits = 0;
+		}
+
+		if (!playBack && ((Time.time - startTime) > timeWithoutFeedForward))
         {
-            //save number of hits 
-            Score s = calculateScore(gameObject.transform);
-            outputScore = outputScore + (Time.time - startTime) + "," + ((boundaries.leftHits + boundaries.rightHits).ToString()) + "," + s.foot + "," + s.upleg + "\n";
-            boundaries.leftHits = 0;
-            boundaries.rightHits = 0;
             playBack = true;
             switch3rdPerson(true);
             zigFu.enabled = false;
