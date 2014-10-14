@@ -10,13 +10,13 @@ public class StateMech : MonoBehaviour
 		private Hashtable saved = new Hashtable ();
 		private int position;
 		private int max = 0;
-		public float timeWithoutFeedForward = (float)120.0;
+		public float timeWithoutFeedForward = (float)10.0;
 		private float timeOffset = (float)0;
 		private GameObject camera3rdPerson;
 		private GameObject camera1stPerson;
 		private ArrayList spheres = new ArrayList ();
 		public bool OVRActive = false;
-		public float timeLoop = (float)300.0;
+		public float timeLoop = (float)30.0;
 		public Boundaries boundaries;
 		public Zig zigFu;
 		private string numHits = "";
@@ -26,8 +26,9 @@ public class StateMech : MonoBehaviour
 		private bool playBack = false;
 		private float startTime = 0f;
 		private float endHitTime = 0f;
+		private float runStartTime = 0f;
 		private int runEndShownFor = 10;
-
+		
 		public float jointAngleThreshold = 10f;
 		public float optimalJointAngle = 140f;
 
@@ -40,58 +41,63 @@ public class StateMech : MonoBehaviour
 				DontDestroyOnLoad (gameObject);
 		}
 
-		public void returnToStart ()
+		public void returnToStart (bool timedout = false)
 		{
-			if (!playBack) {
+				if (!playBack) {
 						//slow physics
 						gameObject.rigidbody.drag = 0.5f;
 						endHitTime = Time.time;
 						runEndGUI.timeLeft = runEndShownFor;
 						
-						if ((Time.time + runEndShownFor) > timeWithoutFeedForward) {
+						if ((endHitTime + runEndShownFor) > timeWithoutFeedForward) {
+								runEndGUI.resetBools();
 								runEndGUI.playbackNext = true;
+								runEndGUI.runTimeEnd = timedout;
 						} else {
-								runEndGUI.playbackNext = false;
+							runEndGUI.resetBools();
+							runEndGUI.runTimeEnd = timedout;
+							runEndGUI.playbackNext = false;
 						}
 						runEndGUI.enabled = true;
+
 				} else {
-					endHitTime = Time.time;
-					thirdPRunEndGUI.timeLeft = runEndShownFor;
+						endHitTime = Time.time;
+						thirdPRunEndGUI.timeLeft = runEndShownFor;
 					
-					thirdPRunEndGUI.playbackNext = false;
-					thirdPRunEndGUI.endOfPlayback = true;
-				
-					thirdPRunEndGUI.enabled = true;
+						thirdPRunEndGUI.resetBools();
+						thirdPRunEndGUI.endOfPlayback = true;
+						thirdPRunEndGUI.enabled = true;
 				}
 		
 		}
 
 	void resetToTop(){
-		gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
-		gameObject.transform.rotation = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).rotation;
-		gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
-		if (!playBack && ((Time.time - startTime) > timeWithoutFeedForward ) ) {
-			//save number of hits 
-			numHits = numHits + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
-			boundaries.leftHits = 0;
-			boundaries.rightHits = 0;
-			playBack = true;
-			switch3rdPerson (true);
-			zigFu.enabled = false;
-			Debug.Log ("Zig Fu Disabled");
-		} else {
-			gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
-			gameObject.transform.rotation = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).rotation;
-			gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
-			saved = new Hashtable ();
-			position = 0;
-			max = 0;
-			playBack = false;
-			switch3rdPerson (false);
-			zigFu.enabled = true;
-			Debug.Log ("Zig Fu Enabled");
+				runStartTime = Time.time;
+				gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
+				gameObject.transform.rotation = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).rotation;
+				gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
+				if (!playBack && ((Time.time - startTime) > timeWithoutFeedForward)) {
+						//save number of hits 
+						numHits = numHits + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
+						boundaries.leftHits = 0;
+						boundaries.rightHits = 0;
+						playBack = true;
+						switch3rdPerson (true);
+						zigFu.enabled = false;
+						Debug.Log ("Zig Fu Disabled");
+				} else {
+						gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
+						gameObject.transform.rotation = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).rotation;
+						gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
+						saved = new Hashtable ();
+						position = 0;
+						max = 0;
+						playBack = false;
+						switch3rdPerson (false);
+						zigFu.enabled = true;
+						Debug.Log ("Zig Fu Enabled");
+				}
 		}
-	}
 		// Use this for initialization
 		void Start ()
 		{
@@ -125,9 +131,9 @@ public class StateMech : MonoBehaviour
 		void Update ()
 		{
 				//detect if health and safety warning is dismissed and show initial message if so
-				if(Input.anyKeyDown && startTime == 0 && initialGUI.enabled == false){
-					//show initial gui
-					initialGUI.enabled = true;
+				if (Input.anyKeyDown && startTime == 0 && initialGUI.enabled == false && Time.time > 5.0f) {
+						//show initial gui
+						initialGUI.enabled = true;
 				}
 
 				if (Input.GetKeyDown (KeyCode.R)) {
@@ -135,28 +141,50 @@ public class StateMech : MonoBehaviour
 						OVRCamera.ResetCameraPositionOrientation (Vector3.one, Vector3.zero, Vector3.up, Vector3.zero);
 				}
 
+				if ( startTime != 0 && (Time.time - startTime) > timeLoop) {
+						int timeLeft = (int)(runEndShownFor - (Time.time - startTime - timeLoop));
+						if (timeLeft <= 0) {
+								//save and quit
+								System.IO.File.WriteAllText (@"C:\Users\Sara\Desktop\SnowSchoolData.csv", numHits);
+								Application.Quit ();
+						} else {
+								if (camera1stPerson.camera.enabled == true) {
+										runEndGUI.timeLeft = timeLeft;
+										runEndGUI.gameTimeEnd = true;
+										runEndGUI.enabled = true;
+								} else {
+										//show in 3rd person cam
+										thirdPRunEndGUI.timeLeft = timeLeft;
+										thirdPRunEndGUI.gameTimeEnd = true;
+										thirdPRunEndGUI.enabled = true;
+								}
+						}
+					return;
+				}
+
 				if (runEndGUI.enabled) {
-					runEndGUI.timeLeft = (int) (runEndShownFor - (Time.time - endHitTime));
-					if ( runEndGUI.timeLeft <= 0 ){
-						gameObject.rigidbody.drag = 0;
-						runEndGUI.enabled = false;
-						resetToTop();
-					}
+			            runEndGUI.timeLeft = (int)(runEndShownFor - (Time.time - endHitTime));
+						if (runEndGUI.timeLeft <= 0) {
+								gameObject.rigidbody.drag = 0;
+								runEndGUI.enabled = false;
+								resetToTop ();
+						}
 				}
 
 				if (thirdPRunEndGUI.enabled) {
-					thirdPRunEndGUI.timeLeft = (int) (runEndShownFor - (Time.time - endHitTime));
-					if ( thirdPRunEndGUI.timeLeft <= 0 ){
-						gameObject.rigidbody.drag = 0;
-						thirdPRunEndGUI.enabled = false;
-						resetToTop();
-					}
+						thirdPRunEndGUI.timeLeft = (int)(runEndShownFor - (Time.time - endHitTime));
+						if (thirdPRunEndGUI.timeLeft <= 0) {
+								gameObject.rigidbody.drag = 0;
+								thirdPRunEndGUI.enabled = false;
+								resetToTop ();
+						}
 				}
 				if (initialGUI.enabled) {
 						if (Input.GetKeyDown (KeyCode.Space)) {
 								initialGUI.enabled = false;
 								gameObject.rigidbody.constraints = RigidbodyConstraints.None;
 								startTime = Time.time;
+							runStartTime = Time.time;
 						}
 				} else if (!(startTime == 0)) {
 						//Debug.Log ("Start time not 0 Playback: " +playBack);
@@ -172,23 +200,13 @@ public class StateMech : MonoBehaviour
 								//Debug.Log("FeedForward");
 								feedForward ();
 						}
-						if ((Time.time - startTime) > timeLoop) {
-								//save and quit
-								System.IO.File.WriteAllText (@"C:\Users\Sara\Desktop\SnowSchoolData.csv", numHits);
-								Application.Quit ();
-						}
-
 				}
 				
-				if (Time.time - startTime > maxRunTime) {
-					returnToStart();
-				
+				if (startTime != 0 && (Time.time - runStartTime) > maxRunTime) {
+					returnToStart(true);
+					runStartTime = Time.time; // set to be large so that doesn't get called to reset again
 				}
-			
-			
-				
 
-			
 		}
 
 		void feedForward ()
@@ -232,7 +250,7 @@ public class StateMech : MonoBehaviour
 								Color color = mySphere.renderer.material.color;
 
 								color = Color.red;
-								color.a = (float)(1.0 - reference.score/10.0);
+								color.a = 1.0f - reference.score/10.0f;
 								mySphere.renderer.material.color = color;
 								mySphere.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
 								//Debug.Log ("Shader - " + mySphere.renderer.material.shader);
