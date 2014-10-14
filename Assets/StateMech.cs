@@ -29,7 +29,7 @@ public class StateMech : MonoBehaviour
     private float endHitTime = 0f;
     private float runStartTime = 0f;
     private int runEndShownFor = 10;
-
+	private bool feedForwardON = false;
     public float jointAngleThreshold = 10f;
     public float optimalJointAngle = 140f;
 
@@ -53,19 +53,30 @@ public class StateMech : MonoBehaviour
 
             if ((endHitTime + runEndShownFor) > timeWithoutFeedForward)
             {
-                runEndGUI.resetBools();
-                runEndGUI.playbackNext = true;
-                runEndGUI.runTimeEnd = timedout;
+				if(feedForwardON){
+                	runEndGUI.resetBools();
+                	runEndGUI.playbackNext = true;
+                	runEndGUI.runTimeEnd = timedout;
+					
+					runEndGUI.enabled = true;
+				}else{
+					//feed forward hasn't been done yet - give them a break
+					feedForwardON = true;
+					initialGUI.showBreak = true;
+					initialGUI.enabled = true;
+					gameObject.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+				}
             }
             else
             {
                 runEndGUI.resetBools();
                 runEndGUI.runTimeEnd = timedout;
                 runEndGUI.playbackNext = false;
-            }
-            runEndGUI.enabled = true;
-
-        }
+				
+				runEndGUI.enabled = true;
+			}
+			
+		}
         else
         {
             endHitTime = Time.time;
@@ -109,7 +120,7 @@ public class StateMech : MonoBehaviour
         return s;
     }
 
-    void resetToTop()
+    void resetToTop(bool preventPlayback = false)
     {
         runStartTime = Time.time;
         gameObject.transform.position = ((GOReference)((ArrayList)saved[gameObject.name])[0]).position;
@@ -122,7 +133,7 @@ public class StateMech : MonoBehaviour
 			boundaries.rightHits = 0;
 		}
 
-		if (!playBack && ((Time.time - startTime) > timeWithoutFeedForward))
+		if (!playBack && ((Time.time - startTime) > timeWithoutFeedForward) && !preventPlayback)
         {
             playBack = true;
             switch3rdPerson(true);
@@ -249,9 +260,16 @@ public class StateMech : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 initialGUI.enabled = false;
-                gameObject.rigidbody.constraints = RigidbodyConstraints.None;
-                startTime = Time.time;
-                runStartTime = Time.time;
+				gameObject.rigidbody.constraints = RigidbodyConstraints.None;
+				gameObject.rigidbody.drag = 0;
+				if(feedForwardON){
+					//return to start and skip playback
+
+					resetToTop(true);
+				}else{
+                	startTime = Time.time;
+					runStartTime = Time.time;
+				}
             }
         }
         else if (!(startTime == 0))

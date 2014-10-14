@@ -20,9 +20,27 @@ Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A
 Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\OpenNI.Net.dll into Unity Child Domain
 Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\ZDK.dll (this message is harmless)
 Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\ZDK.dll into Unity Child Domain
-- Completed reload, in  0.114 seconds
+- Completed reload, in  0.111 seconds
 <RI> Initializing input.
 XInput1_3.dll not found.
+<RI.Hid> Failed to create device file:
+ 2 The system cannot find the file specified.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 The system cannot find the file specified.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 The system cannot find the file specified.
+
+ 
+(Filename:  Line: 54)
+
 <RI> Input initialized.
 desktop: 1280x768 59Hz; virtual: 1280x768 at 0,0
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
@@ -31,14 +49,6 @@ WARNING: Shader Unsupported: 'Hidden/Nature/Tree Creator Leaves Optimized' - Pas
 Shader 'Hidden/TerrainEngine/Splatmap/Lightmap-FirstPass': fallback shader 'Diffuse' not found
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Splatmap/Lightmap-FirstPass' - Pass 'FORWARD' shader state not supported
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Splatmap/Lightmap-FirstPass' - Setting to default shader.
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1783)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1783)
-
 The referenced script on this Behaviour is missing!
  
 (Filename:  Line: 1783)
@@ -72,186 +82,70 @@ This also means you must quit the Unity Editor before using any compiled product
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Exception while attempting to start reader:
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Error initing Kinect SDK: 2197880852
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-failed opening Kinect SDK sensor (if you intend to use the Microsoft Kinect SDK, please unplug the sensor, restart Unity and try again)
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Trying to open sensor using OpenNI
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libOpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libOpenNI
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI
-System.DllNotFoundException: OpenNI
-  at (wrapper managed-to-native) OpenNI.SafeNativeMethods:xnInit (intptr&)
-  at OpenNI.Context.Init () [0x00000] in <filename unknown>:0 
-  at OpenNI.Context..ctor () [0x00000] in <filename unknown>:0 
-  at ZigInputOpenNI.Init (.ZigInputSettings settings) [0x00000] in <filename unknown>:0 
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Exception while attempting to start reader:
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Error opening OpenNI context: OpenNI
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-failed opening sensor using OpenNI version 1, attempting to open the sensor with OpenNI 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/NiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\NiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/NiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/NiTE2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\NiTE2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/NiTE2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libNiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libNiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libNiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/NiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\NiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/NiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/NiTE2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\NiTE2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/NiTE2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libNiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libNiTE2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libNiTE2.dll
-ZigInputOpenNI2 Init
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/OpenNI2
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/.\libOpenNI2.dll
-Fallback handler could not load library C:/Users/Sara/Documents/GitHub/snowSchoolVR/snowschool_Rift_A_Data/Mono/libOpenNI2.dll
-Exception while attempting to start reader:
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-OpenNI2.dll
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-failed opening sensor using OpenNI version 2
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Failed to load driver and middleware, review warnings above for specific exception messages from middleware
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-OVRMainMenu: More then 1 OVRCameraController attached.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-OVRMainMenu: No OVRPlayerController attached.
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
 Kinect specific comopnent started
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Zig: Found user  42
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Boo.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\System.Core.dll (this message is harmless)
-HIT END PLANE
+HIT LEFT PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at StateMech.returnToStart () [0x00000] in <filename unknown>:0 
-  at EndTrigger.OnTriggerEnter (UnityEngine.Collider other) [0x00000] in <filename unknown>:0 
+HIT LEFT PLANE
  
-(Filename:  Line: -1)
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Zig Fu Enabled
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT LEFT PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT LEFT PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT LEFT PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT LEFT PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Zig: Found user  181
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Zig Fu Disabled
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Zig: Lost user 181
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT LEFT PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT LEFT PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT LEFT PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT LEFT PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
