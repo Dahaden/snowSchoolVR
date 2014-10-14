@@ -26,8 +26,9 @@ public class StateMech : MonoBehaviour
 		private bool playBack = false;
 		private float startTime = 0f;
 		private float endHitTime = 0f;
+		private float runStartTime = 0f;
 		private int runEndShownFor = 10;
-
+		
 		public float jointAngleThreshold = 10f;
 		public float optimalJointAngle = 140f;
 
@@ -40,7 +41,7 @@ public class StateMech : MonoBehaviour
 				DontDestroyOnLoad (gameObject);
 		}
 
-		public void returnToStart ()
+		public void returnToStart (bool timedout = false)
 		{
 				if (!playBack) {
 						//slow physics
@@ -48,28 +49,30 @@ public class StateMech : MonoBehaviour
 						endHitTime = Time.time;
 						runEndGUI.timeLeft = runEndShownFor;
 						
-						if ((Time.time + runEndShownFor) > timeWithoutFeedForward) {
+						if ((endHitTime + runEndShownFor) > timeWithoutFeedForward) {
 								runEndGUI.resetBools();
 								runEndGUI.playbackNext = true;
+								runEndGUI.runTimeEnd = timedout;
 						} else {
-								runEndGUI.resetBools();
-								runEndGUI.playbackNext = false;
+							runEndGUI.resetBools();
+							runEndGUI.runTimeEnd = timedout;
+							runEndGUI.playbackNext = false;
 						}
 						runEndGUI.enabled = true;
+
 				} else {
 						endHitTime = Time.time;
 						thirdPRunEndGUI.timeLeft = runEndShownFor;
 					
-						
 						thirdPRunEndGUI.resetBools();
 						thirdPRunEndGUI.endOfPlayback = true;
-				
 						thirdPRunEndGUI.enabled = true;
 				}
 		
 		}
 
 	void resetToTop(){
+				runStartTime = Time.time;
 				gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
 				gameObject.transform.rotation = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).rotation;
 				gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
@@ -138,7 +141,7 @@ public class StateMech : MonoBehaviour
 						OVRCamera.ResetCameraPositionOrientation (Vector3.one, Vector3.zero, Vector3.up, Vector3.zero);
 				}
 
-				if ((Time.time - startTime) > timeLoop) {
+				if ( startTime != 0 && (Time.time - startTime) > timeLoop) {
 						int timeLeft = (int)(runEndShownFor - (Time.time - startTime - timeLoop));
 						if (timeLeft <= 0) {
 								//save and quit
@@ -160,7 +163,7 @@ public class StateMech : MonoBehaviour
 				}
 
 				if (runEndGUI.enabled) {
-						runEndGUI.timeLeft = (int)(runEndShownFor - (Time.time - endHitTime));
+			            runEndGUI.timeLeft = (int)(runEndShownFor - (Time.time - endHitTime));
 						if (runEndGUI.timeLeft <= 0) {
 								gameObject.rigidbody.drag = 0;
 								runEndGUI.enabled = false;
@@ -181,6 +184,7 @@ public class StateMech : MonoBehaviour
 								initialGUI.enabled = false;
 								gameObject.rigidbody.constraints = RigidbodyConstraints.None;
 								startTime = Time.time;
+							runStartTime = Time.time;
 						}
 				} else if (!(startTime == 0)) {
 						Debug.Log ("Start time not 0 Playback: " +playBack);
@@ -194,9 +198,9 @@ public class StateMech : MonoBehaviour
 						}
 				}
 				
-				if (Time.time - startTime > maxRunTime) {
-					returnToStart();
-				
+				if (startTime != 0 && (Time.time - runStartTime) > maxRunTime) {
+					returnToStart(true);
+					runStartTime = Time.time; // set to be large so that doesn't get called to reset again
 				}
 
 		}
@@ -242,7 +246,7 @@ public class StateMech : MonoBehaviour
 								Color color = mySphere.renderer.material.color;
 
 								color = Color.red;
-								color.a = 1.0 - reference.score/10.0;
+								color.a = 1.0f - reference.score/10.0f;
 								mySphere.renderer.material.color = color;
 								mySphere.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
 								//Debug.Log ("Shader - " + mySphere.renderer.material.shader);
