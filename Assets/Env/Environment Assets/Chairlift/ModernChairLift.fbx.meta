@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 11d330f65a7ce4246b6ca368b39a0281
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Blister
+    100002: BlisterAxis
+    100004: BlisterFrame
+    100006: BlisterSusp
+    100008: Cable
+    100010: Camera
+    100012: Chair
+    100014: ChairFrame
+    100016: ChairSupport
+    100018: FootSupport
+    100020: Lamp
+    100022: //RootNode
+    100024: Point
+    100026: SafetyBar
+    100028: Side
+    100030: Suspension
+    100032: SuspensionCart
+    100034: Trolley
+    100036: Wheels
+    400000: Blister
+    400002: BlisterAxis
+    400004: BlisterFrame
+    400006: BlisterSusp
+    400008: Cable
+    400010: Camera
+    400012: Chair
+    400014: ChairFrame
+    400016: ChairSupport
+    400018: FootSupport
+    400020: Lamp
+    400022: //RootNode
+    400024: Point
+    400026: SafetyBar
+    400028: Side
+    400030: Suspension
+    400032: SuspensionCart
+    400034: Trolley
+    400036: Wheels
+    2300000: Blister
+    2300002: BlisterAxis
+    2300004: BlisterFrame
+    2300006: BlisterSusp
+    2300008: Cable
+    2300010: Chair
+    2300012: ChairFrame
+    2300014: ChairSupport
+    2300016: FootSupport
+    2300018: SafetyBar
+    2300020: Side
+    2300022: Suspension
+    2300024: SuspensionCart
+    2300026: Trolley
+    2300028: Wheels
+    3300000: Blister
+    3300002: BlisterAxis
+    3300004: BlisterFrame
+    3300006: BlisterSusp
+    3300008: Cable
+    3300010: Chair
+    3300012: ChairFrame
+    3300014: ChairSupport
+    3300016: FootSupport
+    3300018: SafetyBar
+    3300020: Side
+    3300022: Suspension
+    3300024: SuspensionCart
+    3300026: Trolley
+    3300028: Wheels
+    4300000: Suspension
+    4300002: Trolley
+    4300004: Wheels
+    4300006: SuspensionCart
+    4300008: ChairFrame
+    4300010: BlisterFrame
+    4300012: Blister
+    4300014: BlisterSusp
+    4300016: Chair
+    4300018: ChairSupport
+    4300020: Side
+    4300022: SafetyBar
+    4300024: BlisterAxis
+    4300026: FootSupport
+    4300028: Cable
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
