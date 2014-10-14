@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Linq;
@@ -19,7 +20,7 @@ public class StateMech : MonoBehaviour
 		public float timeLoop = (float)30.0;
 		public Boundaries boundaries;
 		public Zig zigFu;
-		private string numHits = "";
+		private string outputScore = "";
 		private SnowSchoolMenu initialGUI;
 		private RunEndGUI runEndGUI;
 		private RunEndGUI thirdPRunEndGUI;
@@ -78,7 +79,7 @@ public class StateMech : MonoBehaviour
 				gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
 				if (!playBack && ((Time.time - startTime) > timeWithoutFeedForward)) {
 						//save number of hits 
-						numHits = numHits + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
+						outputScore = outputScore + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
 						boundaries.leftHits = 0;
 						boundaries.rightHits = 0;
 						playBack = true;
@@ -145,7 +146,11 @@ public class StateMech : MonoBehaviour
 						int timeLeft = (int)(runEndShownFor - (Time.time - startTime - timeLoop));
 						if (timeLeft <= 0) {
 								//save and quit
-								System.IO.File.WriteAllText (@"C:\Users\Sara\Desktop\SnowSchoolData.csv", numHits);
+                            //save and quit
+                            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+                            System.IO.File.WriteAllText(path + @"\SnowSchoolData" + DateTime.Now.ToString("yyyyMMddHHmmssfff")
+            + ".csv", outputScore);
 								Application.Quit ();
 						} else {
 								if (camera1stPerson.camera.enabled == true) {
