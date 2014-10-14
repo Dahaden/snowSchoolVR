@@ -112,12 +112,16 @@ function getRotate(transform) {
 
 function OnCollisionEnter (col : Collision)
 {
-    isColliding = true;
+	if (col.collider.gameObject.name.Equals("Terrain")) {
+    	isColliding = true;
+    }
 }
 
 function OnCollisionExit (col : Collision)
 {
-    isColliding = false;
+	if (col.collider.gameObject.name.Equals("Terrain")) {
+    	isColliding = false;
+    }
 }
 
 function getVectorInput() {
