@@ -249,9 +249,11 @@ public class StateMech : MonoBehaviour
 									
 									color = Color.red;
 									color.a = (float)(1.0 - weight.x/15.0);
-
+									reference.score = 10 - color.a* 10;
 									mySphere.renderer.material.color = color;
 									mySphere.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
+								} else {
+									reference.score = 10;
 								}
 								
 							} else {
@@ -265,8 +267,11 @@ public class StateMech : MonoBehaviour
 									
 									color = Color.red;
 									color.a = (float)(1.0 - weight.x/15.0);
+									reference.score = 10 - color.a* 10;
 									mySphere.renderer.material.color = color;
 									mySphere.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
+								} else {
+									reference.score = 10;
 								}
 							}
 
