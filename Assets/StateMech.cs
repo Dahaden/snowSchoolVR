@@ -111,7 +111,9 @@ public class StateMech : MonoBehaviour
         {
             if (!child.name.Contains("Camera"))
             {
-                setFromHash(child);
+                Score temp = calculateScore(child);
+                upleg += temp.upleg;
+                foot += temp.foot;
             }
         }
         Score s = new Score();
