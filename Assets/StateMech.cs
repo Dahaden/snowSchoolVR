@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class StateMech : MonoBehaviour
 {
@@ -25,6 +27,13 @@ public class StateMech : MonoBehaviour
 		private float startTime = 0f;
 		private float endHitTime = 0f;
 		private int runEndShownFor = 10;
+
+		public float jointAngleThreshold = 10f;
+		public float optimalJointAngle = 140f;
+
+		public float maxRunTime = (float)120.0;
+
+		
 
 		void Awake ()
 		{
@@ -58,6 +67,9 @@ public class StateMech : MonoBehaviour
 		}
 
 	void resetToTop(){
+		gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
+		gameObject.transform.rotation = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).rotation;
+		gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
 		if (!playBack && ((Time.time - startTime) > timeWithoutFeedForward ) ) {
 			//save number of hits 
 			numHits = numHits + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
@@ -125,21 +137,21 @@ public class StateMech : MonoBehaviour
 
 				if (runEndGUI.enabled) {
 					runEndGUI.timeLeft = (int) (runEndShownFor - (Time.time - endHitTime));
-			if ( runEndGUI.timeLeft <= 0 ){
-					gameObject.rigidbody.drag = 0;
+					if ( runEndGUI.timeLeft <= 0 ){
+						gameObject.rigidbody.drag = 0;
 						runEndGUI.enabled = false;
 						resetToTop();
 					}
 				}
 
-		if (thirdPRunEndGUI.enabled) {
-			thirdPRunEndGUI.timeLeft = (int) (runEndShownFor - (Time.time - endHitTime));
-			if ( thirdPRunEndGUI.timeLeft <= 0 ){
-				gameObject.rigidbody.drag = 0;
-				thirdPRunEndGUI.enabled = false;
-				resetToTop();
-			}
-		}
+				if (thirdPRunEndGUI.enabled) {
+					thirdPRunEndGUI.timeLeft = (int) (runEndShownFor - (Time.time - endHitTime));
+					if ( thirdPRunEndGUI.timeLeft <= 0 ){
+						gameObject.rigidbody.drag = 0;
+						thirdPRunEndGUI.enabled = false;
+						resetToTop();
+					}
+				}
 				if (initialGUI.enabled) {
 						if (Input.GetKeyDown (KeyCode.Space)) {
 								initialGUI.enabled = false;
@@ -147,11 +159,13 @@ public class StateMech : MonoBehaviour
 								startTime = Time.time;
 						}
 				} else if (!(startTime == 0)) {
-
+						Debug.Log ("Start time not 0 Playback: " +playBack);
 						if (!playBack) {
+								Debug.Log("Saving position");
 								updateHash (gameObject.transform);
 								max++;
 						} else {
+								Debug.Log("FeedForward");
 								feedForward ();
 						}
 						if ((Time.time - startTime) > timeLoop) {
@@ -161,7 +175,13 @@ public class StateMech : MonoBehaviour
 						}
 
 				}
-
+				
+				if (Time.time - startTime > maxRunTime) {
+					returnToStart();
+				
+				}
+			
+			
 				
 
 			
@@ -198,7 +218,7 @@ public class StateMech : MonoBehaviour
 						transform.rotation = gamerotation;
 
 						// Create red highlighted portions for all transforms that contain a certain string
-						if (transform.name.Contains ("Leg")) {
+						if (transform.name.Contains ("UpLeg")) {
 				
 								GameObject mySphere = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 								spheres.Add (mySphere);
@@ -208,7 +228,7 @@ public class StateMech : MonoBehaviour
 								Color color = mySphere.renderer.material.color;
 
 								color = Color.red;
-								color.a = 1 - reference.score;
+								color.a = 1.0 - reference.score/10.0;
 								mySphere.renderer.material.color = color;
 								mySphere.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
 								//Debug.Log ("Shader - " + mySphere.renderer.material.shader);
@@ -231,6 +251,10 @@ public class StateMech : MonoBehaviour
 				reference.position = transform.position;
 				reference.rotation = transform.rotation;
 				((ArrayList)saved [transform.name]).Add (reference);
+
+				if(transform.name.Contains ("UpLeg")){
+					reference.score += checkJointAngles(transform, transform.GetChild (0));
+				}
 
 				foreach (Transform child in transform) {
 						if (!child.name.Contains ("Camera")) {
@@ -279,10 +303,36 @@ public class StateMech : MonoBehaviour
 				return null;
 		}
 
-		public void Save ()
-		{
-
+	float checkJointAngles(Transform upperLeg, Transform lowerLeg)
+	{
+		float angle = Quaternion.Angle(upperLeg.rotation, lowerLeg.rotation);
+		
+		if (Mathf.Abs (angle - optimalJointAngle) < jointAngleThreshold) {
+						return 10;
+		} else if (Mathf.Abs (angle - optimalJointAngle) > 10) {
+			return 0;
 		}
+		return 10 - Mathf.Abs(angle - optimalJointAngle);
+	}
+	
+	static void SaveHashtableFile(Hashtable ht, string path)
+	{
+		BinaryFormatter bfw = new BinaryFormatter();
+		FileStream file = File.OpenWrite(path);
+		StreamWriter ws = new StreamWriter(file);
+		bfw.Serialize(ws.BaseStream, ht);
+		file.Close();
+	}
+	
+	static Hashtable OpenHashtableFile(string path)
+	{
+		FileStream filer = File.OpenRead(path);
+		StreamReader readMap = new StreamReader(filer);
+		BinaryFormatter bf = new BinaryFormatter();
+		Hashtable ret = (Hashtable)bf.Deserialize(readMap.BaseStream);
+		filer.Close();
+		return ret;
+	}
 
 }
 
@@ -290,7 +340,7 @@ class GOReference
 {
 		public Vector3 position;
 		public Quaternion rotation;
-		public float score = 0.5f;
+		public float score = 0f;
 }
 
 class PlayerData
