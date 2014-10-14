@@ -72,6 +72,11 @@ public class StateMech : MonoBehaviour
 		
 		}
 
+    int calculateScore()
+    {
+        
+    }
+
 	void resetToTop(){
 				runStartTime = Time.time;
 				gameObject.transform.position = ((GOReference)((ArrayList)saved [gameObject.name]) [0]).position;
@@ -79,7 +84,7 @@ public class StateMech : MonoBehaviour
 				gameObject.rigidbody.velocity = new Vector3 (0, 0, 0);
 				if (!playBack && ((Time.time - startTime) > timeWithoutFeedForward)) {
 						//save number of hits 
-						outputScore = outputScore + "," + ((boundaries.leftHits + boundaries.rightHits).ToString ());
+                    outputScore = outputScore + (Time.time - startTime) + "," + ((boundaries.leftHits + boundaries.rightHits).ToString()) + ","  + calculateScore() + "\n";
 						boundaries.leftHits = 0;
 						boundaries.rightHits = 0;
 						playBack = true;
