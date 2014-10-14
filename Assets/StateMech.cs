@@ -131,7 +131,7 @@ public class StateMech : MonoBehaviour
 		void Update ()
 		{
 				//detect if health and safety warning is dismissed and show initial message if so
-				if (Input.anyKeyDown && startTime == 0 && initialGUI.enabled == false) {
+				if (Input.anyKeyDown && startTime == 0 && initialGUI.enabled == false && Time.time > 5.0f) {
 						//show initial gui
 						initialGUI.enabled = true;
 				}
