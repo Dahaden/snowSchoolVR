@@ -159,13 +159,17 @@ public class StateMech : MonoBehaviour
 								startTime = Time.time;
 						}
 				} else if (!(startTime == 0)) {
-						Debug.Log ("Start time not 0 Playback: " +playBack);
+						//Debug.Log ("Start time not 0 Playback: " +playBack);
 						if (!playBack) {
-								Debug.Log("Saving position");
+								//Debug.Log("Saving position");
 								updateHash (gameObject.transform);
+								if (saved["weight"] == null) {
+									saved["weight"] = new ArrayList ();
+								}
+								((ArrayList)saved["weight"]).Add(new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")));
 								max++;
 						} else {
-								Debug.Log("FeedForward");
+								//Debug.Log("FeedForward");
 								feedForward ();
 						}
 						if ((Time.time - startTime) > timeLoop) {
@@ -228,10 +232,44 @@ public class StateMech : MonoBehaviour
 								Color color = mySphere.renderer.material.color;
 
 								color = Color.red;
-								color.a = 1.0 - reference.score/10.0;
+								color.a = (float)(1.0 - reference.score/10.0);
 								mySphere.renderer.material.color = color;
 								mySphere.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
 								//Debug.Log ("Shader - " + mySphere.renderer.material.shader);
+						} else if (transform.name.Contains ("Foot")) {
+							Vector2 weight = ((Vector2)((ArrayList)saved["weight"])[position]);
+							if (transform.name.Contains("Left")) {
+									if ( reference.velocity.x < -5 && weight.x  > 0) {
+									GameObject mySphere = GameObject.CreatePrimitive (PrimitiveType.Sphere);
+									spheres.Add (mySphere);
+									mySphere.collider.enabled = false;
+									mySphere.transform.localScale = new Vector3 (1, 1, 1) / 5;
+									mySphere.transform.position = transform.position;
+									Color color = mySphere.renderer.material.color;
+									
+									color = Color.red;
+									color.a = (float)(1.0 - weight.x/15.0);
+
+									mySphere.renderer.material.color = color;
+									mySphere.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
+								}
+								
+							} else {
+								if ( reference.velocity.x > 5 && weight.x  < 0) {
+									GameObject mySphere = GameObject.CreatePrimitive (PrimitiveType.Sphere);
+									spheres.Add (mySphere);
+									mySphere.collider.enabled = false;
+									mySphere.transform.localScale = new Vector3 (1, 1, 1) / 5;
+									mySphere.transform.position = transform.position;
+									Color color = mySphere.renderer.material.color;
+									
+									color = Color.red;
+									color.a = (float)(1.0 - weight.x/15.0);
+									mySphere.renderer.material.color = color;
+									mySphere.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
+								}
+							}
+
 						}
 
 						foreach (Transform child in transform) {
@@ -250,6 +288,7 @@ public class StateMech : MonoBehaviour
 				GOReference reference = new GOReference ();
 				reference.position = transform.position;
 				reference.rotation = transform.rotation;
+				reference.velocity = transform.root.gameObject.rigidbody.velocity;
 				((ArrayList)saved [transform.name]).Add (reference);
 
 				if(transform.name.Contains ("UpLeg")){
@@ -341,6 +380,7 @@ class GOReference
 		public Vector3 position;
 		public Quaternion rotation;
 		public float score = 0f;
+		public Vector3 velocity;
 }
 
 class PlayerData
