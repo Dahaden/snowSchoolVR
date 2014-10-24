@@ -1,0 +1,165 @@
+Initialize engine version: 4.5.3f3 (fca41a4fabea)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) Iris(TM) Graphics 5100 (ID=0xa2e)
+    Vendor:   Intel
+    VRAM:     32 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\OpenNI.Net.dll (this message is harmless)
+Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\OpenNI.Net.dll into Unity Child Domain
+Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\ZDK.dll (this message is harmless)
+Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\ZDK.dll into Unity Child Domain
+- Completed reload, in  0.100 seconds
+<RI> Initializing input.
+XInput1_3.dll not found.
+<RI> Input initialized.
+desktop: 1280x768 59Hz; virtual: 1280x768 at 0,0
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/BillboardTree' - Pass '' shader state not supported
+WARNING: Shader Unsupported: 'Hidden/Nature/Tree Creator Leaves Optimized' - Pass '' shader state not supported
+Shader 'Hidden/TerrainEngine/Splatmap/Lightmap-FirstPass': fallback shader 'Diffuse' not found
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Splatmap/Lightmap-FirstPass' - Pass 'FORWARD' shader state not supported
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Splatmap/Lightmap-FirstPass' - Setting to default shader.
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1783)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1783)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1783)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1783)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1783)
+
+Crash!!!
+SymInit: Symbol-SearchPath: '.;C:\Users\Sara\Documents\GitHub\snowSchoolVR;C:\Users\Sara\Documents\GitHub\snowSchoolVR;C:\Windows;C:\Windows\system32;SRV*C:\websymbols*http://msdl.microsoft.com/download/symbols;', symOptions: 530, UserName: 'Sara'
+OS-Version: 6.2.9200 () 0x100-0x1
+C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A.exe:snowschool_Rift_A.exe (003E0000), size: 12214272 (result: 0), SymType: '-exported-', PDB: 'C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A.exe', fileVersion: 4.5.3.26353
+C:\Windows\SYSTEM32\ntdll.dll:ntdll.dll (77CE0000), size: 1404928 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ntdll.dll', fileVersion: 6.2.9200.16912
+C:\Windows\SYSTEM32\KERNEL32.DLL:KERNEL32.DLL (753A0000), size: 1245184 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\KERNEL32.DLL', fileVersion: 6.2.9200.16859
+C:\Windows\SYSTEM32\KERNELBASE.dll:KERNELBASE.dll (756A0000), size: 684032 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\KERNELBASE.dll', fileVersion: 6.2.9200.16864
+C:\Windows\system32\apphelp.dll:apphelp.dll (751B0000), size: 684032 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\system32\apphelp.dll', fileVersion: 6.2.9200.16420
+C:\Windows\SYSTEM32\HID.DLL:HID.DLL (72C90000), size: 40960 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\HID.DLL', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\WS2_32.dll:WS2_32.dll (75BC0000), size: 327680 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WS2_32.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\USER32.dll:USER32.dll (75810000), size: 1138688 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\USER32.dll', fileVersion: 6.2.9200.16420
+C:\Windows\SYSTEM32\VERSION.dll:VERSION.dll (74E10000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\VERSION.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\ole32.dll:ole32.dll (77AE0000), size: 1150976 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ole32.dll', fileVersion: 6.2.9200.16451
+C:\Windows\SYSTEM32\SHLWAPI.dll:SHLWAPI.dll (761F0000), size: 262144 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\SHLWAPI.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\ADVAPI32.dll:ADVAPI32.dll (752F0000), size: 712704 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ADVAPI32.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\GDI32.dll:GDI32.dll (75A40000), size: 1036288 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\GDI32.dll', fileVersion: 6.2.9200.17053
+C:\Windows\SYSTEM32\SHELL32.dll:SHELL32.dll (766F0000), size: 17588224 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\SHELL32.dll', fileVersion: 6.2.9200.16882
+C:\Windows\SYSTEM32\OPENGL32.dll:OPENGL32.dll (6DED0000), size: 843776 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\OPENGL32.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\WINMM.dll:WINMM.dll (74DE0000), size: 135168 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WINMM.dll', fileVersion: 6.2.9200.16642
+C:\Windows\SYSTEM32\OLEAUT32.dll:OLEAUT32.dll (754D0000), size: 569344 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\OLEAUT32.dll', fileVersion: 6.2.9200.16726
+C:\Windows\SYSTEM32\MSACM32.dll:MSACM32.dll (6D1F0000), size: 81920 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\MSACM32.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\IMM32.dll:IMM32.dll (77C00000), size: 131072 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\IMM32.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\DNSAPI.dll:DNSAPI.dll (72670000), size: 479232 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\DNSAPI.dll', fileVersion: 6.2.9200.16420
+C:\Windows\SYSTEM32\IPHLPAPI.DLL:IPHLPAPI.DLL (729F0000), size: 131072 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\IPHLPAPI.DLL', fileVersion: 6.2.9200.16420
+C:\Windows\SYSTEM32\WINHTTP.dll:WINHTTP.dll (6EFC0000), size: 532480 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WINHTTP.dll', fileVersion: 6.2.9200.16451
+C:\Windows\SYSTEM32\msvcrt.dll:msvcrt.dll (75750000), size: 724992 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\msvcrt.dll', fileVersion: 7.0.9200.16384
+C:\Windows\SYSTEM32\RPCRT4.dll:RPCRT4.dll (77A30000), size: 704512 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\RPCRT4.dll', fileVersion: 6.2.9200.17037
+C:\Windows\SYSTEM32\NSI.dll:NSI.dll (777C0000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\NSI.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\combase.dll:combase.dll (75560000), size: 1269760 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\combase.dll', fileVersion: 6.2.9200.16420
+C:\Windows\SYSTEM32\sechost.dll:sechost.dll (779F0000), size: 212992 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\sechost.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\GLU32.dll:GLU32.dll (6DD40000), size: 143360 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\GLU32.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\DDRAW.dll:DDRAW.dll (6DC60000), size: 888832 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\DDRAW.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\WINMMBASE.dll:WINMMBASE.dll (74DB0000), size: 176128 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WINMMBASE.dll', fileVersion: 6.2.9200.16645
+C:\Windows\SYSTEM32\MSCTF.dll:MSCTF.dll (75930000), size: 909312 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\MSCTF.dll', fileVersion: 6.2.9200.16578
+C:\Windows\SYSTEM32\WINNSI.DLL:WINNSI.DLL (729E0000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WINNSI.DLL', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\SspiCli.dll:SspiCli.dll (752D0000), size: 118784 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\SspiCli.dll', fileVersion: 6.2.9200.16864
+C:\Windows\SYSTEM32\DCIMAN32.dll:DCIMAN32.dll (6D970000), size: 28672 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\DCIMAN32.dll', fileVersion: 6.2.9200.16453
+C:\Windows\SYSTEM32\cfgmgr32.dll:cfgmgr32.dll (76510000), size: 286720 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\cfgmgr32.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\DEVOBJ.dll:DEVOBJ.dll (766D0000), size: 122880 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\DEVOBJ.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\CRYPTBASE.dll:CRYPTBASE.dll (752C0000), size: 36864 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\CRYPTBASE.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\bcryptPrimitives.dll:bcryptPrimitives.dll (75260000), size: 331776 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\bcryptPrimitives.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\shcore.dll:shcore.dll (74D30000), size: 471040 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\shcore.dll', fileVersion: 6.2.9200.16931
+C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Mono\mono.dll:mono.dll (10000000), size: 2289664 (result: 0), SymType: '-exported-', PDB: 'C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Mono\mono.dll'
+C:\Windows\SYSTEM32\PSAPI.DLL:PSAPI.DLL (77830000), size: 24576 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\PSAPI.DLL', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\MSWSOCK.dll:MSWSOCK.dll (726F0000), size: 303104 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\MSWSOCK.dll', fileVersion: 6.2.9200.16433
+C:\Windows\system32\uxtheme.dll:uxtheme.dll (72B70000), size: 557056 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\system32\uxtheme.dll', fileVersion: 6.2.9200.16537
+C:\Windows\SYSTEM32\dwmapi.dll:dwmapi.dll (72A20000), size: 102400 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\dwmapi.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\d3d11.dll:d3d11.dll (6DA10000), size: 1724416 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\d3d11.dll', fileVersion: 6.2.9200.16699
+C:\Windows\SYSTEM32\dxgi.dll:dxgi.dll (6DBC0000), size: 376832 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\dxgi.dll', fileVersion: 6.2.9200.16420
+C:\Windows\SYSTEM32\igd10iumd32.dll:igd10iumd32.dll (69A30000), size: 13266944 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\igd10iumd32.dll', fileVersion: 10.18.10.3345
+C:\Windows\SYSTEM32\bcrypt.dll:bcrypt.dll (6DFF0000), size: 106496 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\bcrypt.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\ncrypt.dll:ncrypt.dll (6E010000), size: 102400 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ncrypt.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\NTASN1.dll:NTASN1.dll (6DFC0000), size: 159744 (result: 0), SymType: '-nosymbols-', PDB: 'C:\Windows\SYSTEM32\NTASN1.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\igdusc32.dll:igdusc32.dll (6F050000), size: 3551232 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\igdusc32.dll', fileVersion: 8.15.10.9141
+C:\Windows\SYSTEM32\MMDevAPI.DLL:MMDevAPI.DLL (728F0000), size: 315392 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\MMDevAPI.DLL', fileVersion: 6.2.9200.16420
+C:\Windows\SYSTEM32\wdmaud.drv:wdmaud.drv (6A7D0000), size: 196608 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\wdmaud.drv', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\ksuser.dll:ksuser.dll (6A7A0000), size: 20480 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ksuser.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\AVRT.dll:AVRT.dll (6A790000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\AVRT.dll', fileVersion: 6.2.9200.16420
+C:\Windows\SYSTEM32\AUDIOSES.DLL:AUDIOSES.DLL (72980000), size: 344064 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\AUDIOSES.DLL', fileVersion: 6.2.9200.16578
+C:\Windows\SYSTEM32\powrprof.dll:powrprof.dll (72940000), size: 258048 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\powrprof.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\msacm32.drv:msacm32.drv (6D380000), size: 36864 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\msacm32.drv', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\midimap.dll:midimap.dll (6A7C0000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\midimap.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\dsound.dll:dsound.dll (6A6E0000), size: 540672 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\dsound.dll', fileVersion: 6.2.9200.16384
+C:\Windows\SYSTEM32\clbcatq.dll:clbcatq.dll (75B40000), size: 475136 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\clbcatq.dll', fileVersion: 2001.12.10130.16384
+C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Plugins\OculusPlugin.dll:OculusPlugin.dll (647D0000), size: 618496 (result: 0), SymType: '-exported-', PDB: 'C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Plugins\OculusPlugin.dll'
+C:\Windows\SYSTEM32\SETUPAPI.dll:SETUPAPI.dll (75E40000), size: 1765376 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\SETUPAPI.dll', fileVersion: 6.2.9200.16496
+C:\Windows\SYSTEM32\dbghelp.dll:dbghelp.dll (6DD70000), size: 1216512 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\dbghelp.dll', fileVersion: 6.2.9200.16384
+
+========== OUTPUTING STACK TRACE ==================
+
+(0x647D1E53) (OculusPlugin): (filename not available): (function-name not available) + 0x0
+(0x647D2C28) (OculusPlugin): (filename not available): OVR_SetViewport + 0x118
+(0x647D2CE7) (OculusPlugin): (filename not available): UnitySetGraphicsDevice + 0x27
+(0x0055FEC7) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x93667
+(0x00560035) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x937d5
+(0x10039879) (mono): (filename not available): mono_lookup_pinvoke_call + 0x156
+(0x1004834A) (mono): (filename not available): mono_marshal_string_to_utf16 + 0x55b4
+(0x100CF5B4) (mono): (filename not available): mono_inst_name + 0x1b781
+(0x100EEA85) (mono): (filename not available): mono_set_defaults + 0xc61
+(0x100EF8CB) (mono): (filename not available): mono_set_defaults + 0x1aa7
+(0x100EFE28) (mono): (filename not available): mono_set_defaults + 0x2004
+(0x100EFE95) (mono): (filename not available): mono_set_defaults + 0x2071
+(0x100E9B0F) (mono): (filename not available): mono_debugger_run_finally + 0x17ae
+(0x03E40066) ((module-name not available)): (filename not available): (function-name not available) + 0x0
+(0x0458E629) (Mono JIT code): (filename not available):  (wrapper runtime-invoke) object:runtime_invoke_void__this__ (object,intptr,intptr,intptr) + 0x41 (0458E5E8 0458E67D) [03DF4E70 - Unity Root Domain] + 0x0
+(0x100F00E3) (mono): (filename not available): mono_set_defaults + 0x22bf
+(0x1005D6DF) (mono): (filename not available): mono_runtime_invoke + 0x51
+(0x004F5BE8) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x29388
+(0x0058FC75) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0xc3415
+(0x0058FDFE) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0xc359e
+(0x0058FE8C) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0xc362c
+(0x004E5CBF) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x1945f
+(0x004E86C2) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x1be62
+(0x004E8203) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x1b9a3
+(0x005A7177) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0xda917
+(0x005A7403) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0xdaba3
+(0x005A95F3) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0xdcd93
+(0x0056F336) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0xa2ad6
+(0x00560243) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x939e3
+(0x005613A9) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x94b49
+(0x00561554) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x94cf4
+(0x005D4EFE) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x10869e
+(0x005D66E5) (snowschool_Rift_A): (filename not available): Behaviour::Transfer<StreamedBinaryWrite<0> > + 0x109e85
+(0x00841158) (snowschool_Rift_A): (filename not available): AnimationEvent::Transfer<StreamedBinaryRead<1> > + 0x11af08
+(0x00876030) (snowschool_Rift_A): (filename not available): AnimationEvent::Transfer<StreamedBinaryRead<1> > + 0x14fde0
+(0x753C86E3) (KERNEL32): (filename not available): BaseThreadInitThunk + 0xe
+(0x77D3BE99) (ntdll): (filename not available): RtlInitializeExceptionChain + 0x85
+(0x77D3BE6C) (ntdll): (filename not available): RtlInitializeExceptionChain + 0x58
+
+========== END OF STACKTRACE ===========
+
+**** Crash! ****
