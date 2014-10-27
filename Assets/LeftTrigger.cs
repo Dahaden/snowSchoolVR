@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Provides trigger for left hand side boundary
 public class LeftTrigger : MonoBehaviour
 {
 		private Boundaries bounds;

@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Provides activity for user by allowing them to touch both sides of the ski field to get a score
+ */
+
 public class Boundaries : MonoBehaviour
 {
 

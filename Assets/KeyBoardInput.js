@@ -8,6 +8,12 @@ var isColliding = false;
 var terrain : TerrainData;
 var count = 0;
 
+/**
+  Provides the leaning, physics and manouverability of the player on the snowboard
+*/
+
+
+
 function Start () {
 	count = 0;
 }
@@ -22,6 +28,7 @@ function Update () {
 		var rotate = getRotate(gameObject.transform);
 		var target = null;
 		
+		// Provides a lean within the game to give immersive feel to user
 		if(rotate != null && count%20) {
 			var tiltAroundX = (direction.z/15) * maxLean;
 			target = Quaternion.Euler (tiltAroundX, 0, 0);
@@ -100,6 +107,8 @@ function Update () {
         
     }		
 }
+
+// Finds the 'Rotate' object within GameObject
 function getRotate(transform) {
 	var t : Transform = transform;
 	for(var child : Transform in t) {
@@ -110,13 +119,13 @@ function getRotate(transform) {
 	return null;
 }
 
+// Used to only control the player when touching the ground
 function OnCollisionEnter (col : Collision)
 {
 	if (col.collider.gameObject.name.Equals("Terrain")) {
     	isColliding = true;
     }
 }
-
 function OnCollisionExit (col : Collision)
 {
 	if (col.collider.gameObject.name.Equals("Terrain")) {
@@ -124,6 +133,8 @@ function OnCollisionExit (col : Collision)
     }
 }
 
+
+// Gathers information from mouse (Or Wii Balance board when connected via WiiBalancewalker) and passes as input direction variables
 function getVectorInput() {
 	var steps = 10.0;
 	var x : float = Input.GetAxis("Mouse X") * steps;

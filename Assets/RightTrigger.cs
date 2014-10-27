@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Provides trigger for right hand side
+
 public class RightTrigger : MonoBehaviour
 {
 	private Boundaries bounds;
