@@ -5,6 +5,11 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+/**
+ * StateMech is used to record movements of the player and play them back within the feedforward section of the activity
+ * Public variables allow for changes in time before feedforward starts and how long the game will run for
+ */
+
 public class StateMech : MonoBehaviour
 {
 
@@ -42,6 +47,9 @@ public class StateMech : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+	/**
+	 * Called by EndTrigger to notify that it has reached the end
+	 */
     public void returnToStart(bool timedout = false)
     {
         if (!playBack)
@@ -89,6 +97,9 @@ public class StateMech : MonoBehaviour
 
     }
 
+	/**
+	 * Accumulates all score variables from each node for the past run
+	 */
     Score calculateScore(Transform transform)
     {
         float upleg = 0;
@@ -121,7 +132,10 @@ public class StateMech : MonoBehaviour
         s.upleg = upleg;
         return s;
     }
-
+	/**
+	 * Returns player back up to top of run. 
+	 * 
+	 */
     void resetToTop(bool preventPlayback = false)
     {
         runStartTime = Time.time;
@@ -303,6 +317,10 @@ public class StateMech : MonoBehaviour
 
     }
 
+	/**
+	 * used to place player and all inner nodes from previous run.
+	 * Places red nodes where player should improve
+	 */
     void feedForward()
     {
         foreach (GameObject sphere in spheres)
@@ -327,6 +345,9 @@ public class StateMech : MonoBehaviour
         }
     }
 
+	/**
+	 * Recursively cycles through nodes and places them according to list in saved hash variable
+	 */
     void setFromHash(Transform transform)
     {
         if (saved.Contains(transform.name))
@@ -415,6 +436,9 @@ public class StateMech : MonoBehaviour
         }
     }
 
+	/**
+	 * Recursively cycles through body nodes and records transform in saved hash
+	 */
     void updateHash(Transform transform)
     {
         if (saved[transform.name] == null)
@@ -441,6 +465,9 @@ public class StateMech : MonoBehaviour
         }
     }
 
+	/**
+	 * Switches to and from third person perspective
+	 */
     void switch3rdPerson(bool to)
     {
         Camera[] cameras = new Camera[Camera.allCamerasCount];
@@ -460,6 +487,9 @@ public class StateMech : MonoBehaviour
         }
     }
 
+	/**
+	 * Turns off cameras attached to gameobject provided
+	 */
     void turnOff(bool off, GameObject camera)
     {
         if (camera.name == "1stPersonCamera" || camera.name == "3rdPersonCamera")
@@ -475,6 +505,9 @@ public class StateMech : MonoBehaviour
         }
     }
 
+	/**
+	 * Recursively cycles through child gameobjects to find node with name
+	 */
     GameObject findGameObject(string name, GameObject go)
     {
         if (go.name == name)
@@ -492,6 +525,9 @@ public class StateMech : MonoBehaviour
         return null;
     }
 
+	/**
+	 * Checks for angle between gamobjects and assigns a score
+	 */
     float checkJointAngles(Transform upperLeg, Transform lowerLeg)
     {
         float angle = Quaternion.Angle(upperLeg.rotation, lowerLeg.rotation);
@@ -528,6 +564,7 @@ public class StateMech : MonoBehaviour
 
 }
 
+// Object to record details of a GameObject transform 
 class GOReference
 {
     public Vector3 position;
@@ -536,13 +573,9 @@ class GOReference
     public Vector3 velocity;
 }
 
+// Object to record scores of body parts
 class Score
 {
     public float upleg;
     public float foot;
-}
-
-class PlayerData
-{
-
 }

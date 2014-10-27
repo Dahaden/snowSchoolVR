@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+// Found from http://zigfu.com/en/zdk/unity3d/
+
 public class Zig : MonoBehaviour {
     public ZigInputType inputType = ZigInputType.Auto;
     //public bool UpdateDepthmap = true;

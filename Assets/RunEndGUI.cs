@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/**
+ * GUI Which appears at the end of a run
+ */
 public class RunEndGUI : VRGUI
 {
 
@@ -11,7 +15,10 @@ public class RunEndGUI : VRGUI
 		public bool runTimeEnd;
 		public bool gameTimeEnd;
 		private string labelText;
-
+		
+		/**
+		 * Displays GUI and text dependent on booleans provided
+		 */
 		public override void OnVRGUI ()
 		{
 				GUI.skin = skin;

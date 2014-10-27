@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
+// Menu between self learning and feedforward learning sections of the game
+
 public class SnowSchoolMenu : VRGUI
 {
 		public GUISkin skin;

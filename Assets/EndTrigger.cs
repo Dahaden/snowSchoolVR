@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Provides trigger for end of the map
+
 public class EndTrigger : MonoBehaviour {
 
 	public StateMech stateM;

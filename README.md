@@ -1,6 +1,10 @@
 SnowsSchoolVR
 =============
 
+Run using Snowschool_Rift_A.exe
+
+GameTrailer: https://www.youtube.com/watch?v=PPMaN6JwQd4
+
 #Setup
 
 ## Wii Balance Board

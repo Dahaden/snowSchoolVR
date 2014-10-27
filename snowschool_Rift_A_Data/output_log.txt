@@ -6,43 +6,25 @@ Direct3D:
     Vendor:   Intel
     VRAM:     32 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
-Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\OpenNI.Net.dll (this message is harmless)
-Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\OpenNI.Net.dll into Unity Child Domain
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\ZDK.dll (this message is harmless)
-Loading C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\ZDK.dll into Unity Child Domain
-- Completed reload, in  0.171 seconds
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\OpenNI.Net.dll (this message is harmless)
+Loading C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\OpenNI.Net.dll into Unity Child Domain
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\ZDK.dll (this message is harmless)
+Loading C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\ZDK.dll into Unity Child Domain
+- Completed reload, in  0.048 seconds
 <RI> Initializing input.
 XInput1_3.dll not found.
-<RI.Hid> Failed to create device file:
- 2 The system cannot find the file specified.
-
- 
-(Filename:  Line: 54)
-
-<RI.Hid> Failed to create device file:
- 2 The system cannot find the file specified.
-
- 
-(Filename:  Line: 54)
-
-<RI.Hid> Failed to create device file:
- 2 The system cannot find the file specified.
-
- 
-(Filename:  Line: 54)
-
 <RI> Input initialized.
-desktop: 1280x768 59Hz; virtual: 1280x768 at 0,0
+desktop: 1280x720 60Hz; virtual: 1280x720 at 0,0
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/BillboardTree' - Pass '' shader state not supported
 WARNING: Shader Unsupported: 'Hidden/Nature/Tree Creator Leaves Optimized' - Pass '' shader state not supported
@@ -69,7 +51,7 @@ The referenced script on this Behaviour is missing!
  
 (Filename:  Line: 1783)
 
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\System.dll (this message is harmless)
 Trying to open Kinect sensor using MS Kinect SDK
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
@@ -86,138 +68,22 @@ Kinect specific comopnent started
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Zig: Found user  31
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Boo.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\UnityScript.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\Dave\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\System.Core.dll (this message is harmless)
+HIT Right PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Zig: Lost user 31
+HIT Right PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Zig: Found user  44
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  56
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 44
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 56
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  190
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 190
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  302
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 302
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  408
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 408
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  422
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 422
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  617
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 617
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  663
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 663
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  914
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 914
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  1023
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Found user  1026
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Zig: Lost user 1026
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\Boo.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\UnityScript.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\Sara\Documents\GitHub\snowSchoolVR\snowschool_Rift_A_Data\Managed\System.Core.dll (this message is harmless)
-HIT LEFT PLANE
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT LEFT PLANE
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT LEFT PLANE
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT LEFT PLANE
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT LEFT PLANE
+HIT END PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Zig Fu Enabled
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT LEFT PLANE
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT LEFT PLANE
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT LEFT PLANE
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-HIT LEFT PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -229,39 +95,63 @@ Zig Fu Disabled
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-HIT LEFT PLANE
+HIT END PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-HIT LEFT PLANE
+HIT END PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Zig: Lost user 1023
+Zig: Found user  79
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-HIT LEFT PLANE
+Zig Fu Enabled
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-HIT LEFT PLANE
+HIT Right PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-HIT LEFT PLANE
+HIT Right PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-HIT LEFT PLANE
+HIT END PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Zig: Found user  1028
+Zig: Lost user 79
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Zig: Lost user 1028
+Zig Fu Disabled
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT Right PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT Right PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT Right PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT Right PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT END PLANE
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+HIT END PLANE
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
